@@ -14,7 +14,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         if collectionView == BrandsCollectionView {
             return viewModel.result.count
         }
-        return couponArr.count
+        return viewModel.couponArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,7 +26,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponsCell", for: indexPath) as! CouponCollectionViewCell
-        cell.setCell(photo: couponArr[indexPath.row].photo)
+        cell.setCell(photo: viewModel.couponArr[indexPath.row].photo)
         return cell
     }
 

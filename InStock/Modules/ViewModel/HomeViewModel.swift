@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 
 class HomeViewModel{
+    var couponArr : [Coupon] = [Coupon(photo: UIImage(named: "coupon1")!, title: "coupon20"),Coupon(photo: UIImage(named: "coupon2")!, title: "coupon50"),Coupon(photo: UIImage(named: "coupon3")!, title: "coupon70")]    
     var bindResultToHomeView : (() -> ()) = {}
     var result : [Brands] = []{
         didSet{

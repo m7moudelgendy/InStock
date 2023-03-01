@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SmartCollections : Decodable {
     
@@ -21,4 +22,8 @@ class Brands : Decodable {
 class BrandImage : Decodable {
     
     var src : String?
+}
+struct Coupon{
+    let photo : UIImage
+    let title : String
 }
