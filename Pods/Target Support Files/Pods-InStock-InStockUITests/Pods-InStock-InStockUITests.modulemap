@@ -1,0 +1,6 @@
+framework module Pods_InStock_InStockUITests {
+  umbrella header "Pods-InStock-InStockUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
