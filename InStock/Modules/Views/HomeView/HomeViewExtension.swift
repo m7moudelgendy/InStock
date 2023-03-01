@@ -14,8 +14,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         if collectionView == BrandsCollectionView {
             return viewModel.result.count
         }
-        
-        return 10
+        return couponArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,33 +22,26 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         if collectionView == BrandsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandsCell", for: indexPath) as! BrandsCollectionViewCell
             cell.configCell(brand: viewModel.result[indexPath.row])
-            
             return cell
-            
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponsCell", for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "couponsCell", for: indexPath) as! CouponCollectionViewCell
+        cell.setCell(photo: couponArr[indexPath.row].photo)
         return cell
     }
-    
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == BrandsCollectionView {
-            return CGSize(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.height/5)
+            return CGSize(width: 181, height: 181)
         }
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: couponCollectionView.frame.width, height: couponCollectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 10
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 10
     }
-    
-    
     
 }
 

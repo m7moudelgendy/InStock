@@ -20,6 +20,7 @@
 		AF0F702929AE104B00077816 /* InStockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F702829AE104B00077816 /* InStockTests.swift */; };
 		AF0F703329AE104B00077816 /* InStockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F703229AE104B00077816 /* InStockUITests.swift */; };
 		AF0F703529AE104B00077816 /* InStockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F703429AE104B00077816 /* InStockUITestsLaunchTests.swift */; };
+		AF1CD7D729AFCCA200DA4EE9 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */; };
 		F07F24B629B00B5600F43073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F07F24B529B00B5600F43073 /* Alamofire */; };
 		F0E9ADEF29B0182A00A9D208 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9ADEE29B0182A00A9D208 /* BrandsCollectionViewCell.swift */; };
 		F0E9ADF229B0288300A9D208 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9ADF129B0288300A9D208 /* NetworkManger.swift */; };
@@ -69,6 +70,7 @@
 		AF0F702E29AE104B00077816 /* InStockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InStockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0F703229AE104B00077816 /* InStockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStockUITests.swift; sourceTree = "<group>"; };
 		AF0F703429AE104B00077816 /* InStockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStockUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0E9ADEE29B0182A00A9D208 /* BrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0E9ADF129B0288300A9D208 /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		F0E9ADF329B0292F00A9D208 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -167,6 +169,22 @@
 			path = InStockUITests;
 			sourceTree = "<group>";
 		};
+		AF1CD7D829AFD6BA00DA4EE9 /* BrandsView */ = {
+			isa = PBXGroup;
+			children = (
+				F0E9ADEE29B0182A00A9D208 /* BrandsCollectionViewCell.swift */,
+			);
+			path = BrandsView;
+			sourceTree = "<group>";
+		};
+		AF1CD7D929AFD6CB00DA4EE9 /* CouponView */ = {
+			isa = PBXGroup;
+			children = (
+				AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */,
+			);
+			path = CouponView;
+			sourceTree = "<group>";
+		};
 		CFDF6ACB2CE01A218A1518D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,19 +254,12 @@
 		F0E9ADEC29B00D9300A9D208 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				AF1CD7D929AFD6CB00DA4EE9 /* CouponView */,
+				AF1CD7D829AFD6BA00DA4EE9 /* BrandsView */,
 				F0E9ADF829B0499B00A9D208 /* HomeViewExtension.swift */,
 				AF0F701229AE104800077816 /* HomeViewController.swift */,
-				F0E9ADED29B017BD00A9D208 /* HomeCells */,
 			);
 			path = HomeView;
-			sourceTree = "<group>";
-		};
-		F0E9ADED29B017BD00A9D208 /* HomeCells */ = {
-			isa = PBXGroup;
-			children = (
-				F0E9ADEE29B0182A00A9D208 /* BrandsCollectionViewCell.swift */,
-			);
-			path = HomeCells;
 			sourceTree = "<group>";
 		};
 		F0E9ADF029B0286300A9D208 /* NetworkingServices */ = {
@@ -514,6 +525,7 @@
 			files = (
 				F0E9ADF429B0292F00A9D208 /* DataModel.swift in Sources */,
 				F0E9ADF229B0288300A9D208 /* NetworkManger.swift in Sources */,
+				AF1CD7D729AFCCA200DA4EE9 /* CouponCollectionViewCell.swift in Sources */,
 				AF0F701329AE104800077816 /* HomeViewController.swift in Sources */,
 				F0E9ADF929B0499B00A9D208 /* HomeViewExtension.swift in Sources */,
 				F0E9ADF729B02D5200A9D208 /* HomeViewModel.swift in Sources */,

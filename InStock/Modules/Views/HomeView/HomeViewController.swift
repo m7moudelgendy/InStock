@@ -15,12 +15,18 @@ protocol HomeViewProtocol : AnyObject {
 
 class HomeViewController: UIViewController , HomeViewProtocol {
     
+    @IBOutlet weak var couponCollectionView: UICollectionView!
+    
     @IBOutlet weak var BrandsCollectionView: UICollectionView!
     
     var viewModel : HomeViewModel!
+    var couponArr = [Coupon]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        couponArr.append(Coupon(photo: UIImage(named: "coupon1")!, title: "coupon20"))
+        couponArr.append(Coupon(photo: UIImage(named: "coupon2")!, title: "coupon50"))
+        couponArr.append(Coupon(photo: UIImage(named: "coupon3")!, title: "coupon70"))
         
         viewModel = HomeViewModel()
         
@@ -40,5 +46,8 @@ class HomeViewController: UIViewController , HomeViewProtocol {
     
     
 }
-
+struct Coupon{
+    let photo : UIImage
+    let title : String
+}
 
