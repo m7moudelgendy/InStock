@@ -32,7 +32,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == BrandsCollectionView {
-            return CGSize(width: 181, height: 181)
+            return CGSize(width: 169 , height: 169)
         }
         return CGSize(width: couponCollectionView.frame.width, height: couponCollectionView.frame.height)
     }
@@ -46,7 +46,16 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
             if collectionView == couponCollectionView{
                 UIPasteboard.general.string = viewModel.couponArr[indexPath.row].title
                 print(UIPasteboard.general.string!)
+            }else {
+                let brandDetails = self.storyboard?.instantiateViewController(withIdentifier: "BrandDetailsVC") as! BrandDetailsVC
+                
+                
+                self.navigationController?.pushViewController(brandDetails, animated: true)
+                
             }
+        
+        
+        
         }
 }
 

@@ -23,7 +23,9 @@ class BrandImage : Decodable {
     
     var src : String?
 }
+
 struct Coupon{
     let photo : UIImage
     let title : String
 }
+
