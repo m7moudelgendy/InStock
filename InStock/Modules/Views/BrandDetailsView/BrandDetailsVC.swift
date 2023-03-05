@@ -42,7 +42,7 @@ class BrandDetailsVC: UIViewController , BrandViewProtocol {
         
     }
     
-
+    
 
 }
 extension BrandDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
@@ -64,5 +64,10 @@ extension BrandDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
         self.brandDetailsCollectionView.reloadData()
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productInfo = self.storyboard?.instantiateViewController(withIdentifier: "productInfoViewController") as! productInfoViewController
+        productInfo.collectionID = brandID
+        productInfo.productID = viewModel.products[indexPath.row].id!
+        self.navigationController?.pushViewController(productInfo, animated: true)
+    }
 }

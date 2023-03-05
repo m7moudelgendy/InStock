@@ -8,6 +8,15 @@
         "branch" : "master",
         "revision" : "e68cfdf9c5aa4e69f675198a3cf8bef72c7cdede"
       }
+    },
+    {
+      "identity" : "cosmos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/Cosmos.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "cce521e734d0090494bd4afab5fd2e2f2465c1af"
+      }
     }
   ],
   "version" : 2

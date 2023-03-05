@@ -10,6 +10,11 @@
 		0219C9420BDFA7B2D2425AF1 /* Pods_InStock_InStockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A5A3245CA9EF451A20BA09 /* Pods_InStock_InStockUITests.framework */; };
 		1263B557F73DBFC0F63C2177 /* Pods_InStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE0A836C14F1EC1B8799380 /* Pods_InStock.framework */; };
 		2BF0CAF68D9D2D0A8E94AB37 /* Pods_InStockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C237F22014D509F2D1D53B /* Pods_InStockTests.framework */; };
+		44156EA129B3EC5800FF473B /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 44156EA029B3EC5800FF473B /* Cosmos */; };
+		44156EA829B3ED1200FF473B /* productInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44156EA729B3ED1200FF473B /* productInfoViewController.swift */; };
+		44156EAA29B3ED2C00FF473B /* productImgCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44156EA929B3ED2B00FF473B /* productImgCollectionViewCell.swift */; };
+		44156EAC29B3ED9200FF473B /* ProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44156EAB29B3ED9200FF473B /* ProductInfoViewModel.swift */; };
+		44156EAE29B3EDB800FF473B /* productInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44156EAD29B3EDB800FF473B /* productInfoDataModel.swift */; };
 		AF0F700F29AE104800077816 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F700E29AE104800077816 /* AppDelegate.swift */; };
 		AF0F701129AE104800077816 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F701029AE104800077816 /* SceneDelegate.swift */; };
 		AF0F701329AE104800077816 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F701229AE104800077816 /* HomeViewController.swift */; };
@@ -56,6 +61,10 @@
 		012FC424EB2A94BDBD7BF0D0 /* Pods-InStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStock.release.xcconfig"; path = "Target Support Files/Pods-InStock/Pods-InStock.release.xcconfig"; sourceTree = "<group>"; };
 		0A11BD0A543CB14D41BF8A3F /* Pods-InStockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStockTests.release.xcconfig"; path = "Target Support Files/Pods-InStockTests/Pods-InStockTests.release.xcconfig"; sourceTree = "<group>"; };
 		0EE0A836C14F1EC1B8799380 /* Pods_InStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44156EA729B3ED1200FF473B /* productInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoViewController.swift; sourceTree = "<group>"; };
+		44156EA929B3ED2B00FF473B /* productImgCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productImgCollectionViewCell.swift; sourceTree = "<group>"; };
+		44156EAB29B3ED9200FF473B /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
+		44156EAD29B3EDB800FF473B /* productInfoDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productInfoDataModel.swift; sourceTree = "<group>"; };
 		50BEFD5879001B013926588C /* Pods-InStock-InStockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStock-InStockUITests.release.xcconfig"; path = "Target Support Files/Pods-InStock-InStockUITests/Pods-InStock-InStockUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74C237F22014D509F2D1D53B /* Pods_InStockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InStockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DAC1F8B2BAD2C1B9011B045 /* Pods-InStockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStockTests.debug.xcconfig"; path = "Target Support Files/Pods-InStockTests/Pods-InStockTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44156EA129B3EC5800FF473B /* Cosmos in Frameworks */,
 				1263B557F73DBFC0F63C2177 /* Pods_InStock.framework in Frameworks */,
 				F07F24B629B00B5600F43073 /* Alamofire in Frameworks */,
 			);
@@ -119,6 +129,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44156EA429B3ECFF00FF473B /* ProductInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				44156EA729B3ED1200FF473B /* productInfoViewController.swift */,
+				44156EA929B3ED2B00FF473B /* productImgCollectionViewCell.swift */,
+			);
+			path = ProductInfoView;
+			sourceTree = "<group>";
+		};
 		7B8A4C83EC63AB934AB74EE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +271,7 @@
 			children = (
 				F0E9ADF629B02D5200A9D208 /* HomeViewModel.swift */,
 				F043C26529B0898C00DA7AA5 /* CategoryViewModel.swift */,
+				44156EAB29B3ED9200FF473B /* ProductInfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -268,6 +288,7 @@
 		F0E9ADEA29B00D5300A9D208 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				44156EA429B3ECFF00FF473B /* ProductInfoView */,
 				F032D7AF29B14634001284D4 /* BrandDetailsView */,
 				F043C26029B07EBB00DA7AA5 /* CategoryView */,
 				F0E9ADEC29B00D9300A9D208 /* HomeView */,
@@ -308,6 +329,7 @@
 			children = (
 				F0E9ADF329B0292F00A9D208 /* DataModel.swift */,
 				F0906E4829B2C791009289A3 /* BrandDataModel.swift */,
+				44156EAD29B3EDB800FF473B /* productInfoDataModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -332,6 +354,7 @@
 			name = InStock;
 			packageProductDependencies = (
 				F07F24B529B00B5600F43073 /* Alamofire */,
+				44156EA029B3EC5800FF473B /* Cosmos */,
 			);
 			productName = InStock;
 			productReference = AF0F700B29AE104800077816 /* InStock.app */;
@@ -410,6 +433,7 @@
 			mainGroup = AF0F700229AE104800077816;
 			packageReferences = (
 				F07F24B429B00B5600F43073 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = AF0F700C29AE104800077816 /* Products */;
 			projectDirPath = "";
@@ -557,20 +581,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44156EAA29B3ED2C00FF473B /* productImgCollectionViewCell.swift in Sources */,
 				F0E9ADF429B0292F00A9D208 /* DataModel.swift in Sources */,
 				F0906E4929B2C791009289A3 /* BrandDataModel.swift in Sources */,
 				F0E9ADF229B0288300A9D208 /* NetworkManger.swift in Sources */,
 				AF1CD7D729AFCCA200DA4EE9 /* CouponCollectionViewCell.swift in Sources */,
 				AF0F701329AE104800077816 /* HomeViewController.swift in Sources */,
 				F043C26429B07F0C00DA7AA5 /* CategoryViewController.swift in Sources */,
+				44156EA829B3ED1200FF473B /* productInfoViewController.swift in Sources */,
 				F0E9ADF929B0499B00A9D208 /* HomeViewExtension.swift in Sources */,
 				F0E9ADF729B02D5200A9D208 /* HomeViewModel.swift in Sources */,
 				AF0F700F29AE104800077816 /* AppDelegate.swift in Sources */,
 				F0E9ADEF29B0182A00A9D208 /* BrandsCollectionViewCell.swift in Sources */,
 				F043C26629B0898C00DA7AA5 /* CategoryViewModel.swift in Sources */,
+				44156EAE29B3EDB800FF473B /* productInfoDataModel.swift in Sources */,
 				F043C26229B07EE200DA7AA5 /* CategoryCollectionViewCell.swift in Sources */,
 				F032D7B129B14657001284D4 /* BrandDetailsVC.swift in Sources */,
 				F032D7B329B14EFF001284D4 /* BrandDetailsCell.swift in Sources */,
+				44156EAC29B3ED9200FF473B /* ProductInfoViewModel.swift in Sources */,
 				AF0F701129AE104800077816 /* SceneDelegate.swift in Sources */,
 				AF0F701929AE104800077816 /* InStock.xcdatamodeld in Sources */,
 			);
@@ -916,6 +944,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F07F24B429B00B5600F43073 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -927,6 +963,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		44156EA029B3EC5800FF473B /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
 		F07F24B529B00B5600F43073 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F07F24B429B00B5600F43073 /* XCRemoteSwiftPackageReference "Alamofire" */;

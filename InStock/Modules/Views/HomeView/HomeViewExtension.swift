@@ -50,9 +50,8 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
                 let brandDetails = self.storyboard?.instantiateViewController(withIdentifier: "BrandDetailsVC") as! BrandDetailsVC
                 
                 brandDetails.brandID = viewModel.result[indexPath.row].id!
-                self.navigationController?.pushViewController(brandDetails, animated: true)
-                
-            }
+                 self.navigationController?.pushViewController(brandDetails, animated: true)
+             }
         
         
         
