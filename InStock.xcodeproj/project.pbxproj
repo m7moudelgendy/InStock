@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0219C9420BDFA7B2D2425AF1 /* Pods_InStock_InStockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A5A3245CA9EF451A20BA09 /* Pods_InStock_InStockUITests.framework */; };
 		1263B557F73DBFC0F63C2177 /* Pods_InStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE0A836C14F1EC1B8799380 /* Pods_InStock.framework */; };
+		18940AE929B4B97D0097F698 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AE829B4B97D0097F698 /* URLs.swift */; };
+		18940AEB29B4C4DC0097F698 /* registerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEA29B4C4DC0097F698 /* registerDataModel.swift */; };
+		18940AED29B4C5D40097F698 /* Encodable + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEC29B4C5D40097F698 /* Encodable + extension.swift */; };
+		18940AF029B4C6920097F698 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEF29B4C6920097F698 /* helper.swift */; };
 		2BF0CAF68D9D2D0A8E94AB37 /* Pods_InStockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C237F22014D509F2D1D53B /* Pods_InStockTests.framework */; };
 		44156EA129B3EC5800FF473B /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 44156EA029B3EC5800FF473B /* Cosmos */; };
 		44156EA829B3ED1200FF473B /* productInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44156EA729B3ED1200FF473B /* productInfoViewController.swift */; };
@@ -61,6 +65,10 @@
 		012FC424EB2A94BDBD7BF0D0 /* Pods-InStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStock.release.xcconfig"; path = "Target Support Files/Pods-InStock/Pods-InStock.release.xcconfig"; sourceTree = "<group>"; };
 		0A11BD0A543CB14D41BF8A3F /* Pods-InStockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStockTests.release.xcconfig"; path = "Target Support Files/Pods-InStockTests/Pods-InStockTests.release.xcconfig"; sourceTree = "<group>"; };
 		0EE0A836C14F1EC1B8799380 /* Pods_InStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18940AE829B4B97D0097F698 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		18940AEA29B4C4DC0097F698 /* registerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerDataModel.swift; sourceTree = "<group>"; };
+		18940AEC29B4C5D40097F698 /* Encodable + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + extension.swift"; sourceTree = "<group>"; };
+		18940AEF29B4C6920097F698 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		44156EA729B3ED1200FF473B /* productInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoViewController.swift; sourceTree = "<group>"; };
 		44156EA929B3ED2B00FF473B /* productImgCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productImgCollectionViewCell.swift; sourceTree = "<group>"; };
 		44156EAB29B3ED9200FF473B /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +137,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18940AE729B4B95A0097F698 /* Constatnt */ = {
+			isa = PBXGroup;
+			children = (
+				18940AE829B4B97D0097F698 /* URLs.swift */,
+			);
+			path = Constatnt;
+			sourceTree = "<group>";
+		};
+		18940AEE29B4C6710097F698 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				18940AEF29B4C6920097F698 /* helper.swift */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
 		44156EA429B3ECFF00FF473B /* ProductInfoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +197,7 @@
 		AF0F700D29AE104800077816 /* InStock */ = {
 			isa = PBXGroup;
 			children = (
+				18940AE729B4B95A0097F698 /* Constatnt */,
 				F0E9ADEB29B00D6400A9D208 /* View */,
 				F0E9ADE929B00D1C00A9D208 /* Modules */,
 				F0E9ADE629B00CD200A9D208 /* Utilty */,
@@ -288,6 +313,7 @@
 		F0E9ADEA29B00D5300A9D208 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18940AEE29B4C6710097F698 /* RegisterView */,
 				44156EA429B3ECFF00FF473B /* ProductInfoView */,
 				F032D7AF29B14634001284D4 /* BrandDetailsView */,
 				F043C26029B07EBB00DA7AA5 /* CategoryView */,
@@ -330,6 +356,8 @@
 				F0E9ADF329B0292F00A9D208 /* DataModel.swift */,
 				F0906E4829B2C791009289A3 /* BrandDataModel.swift */,
 				44156EAD29B3EDB800FF473B /* productInfoDataModel.swift */,
+				18940AEA29B4C4DC0097F698 /* registerDataModel.swift */,
+				18940AEC29B4C5D40097F698 /* Encodable + extension.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -585,14 +613,18 @@
 				F0E9ADF429B0292F00A9D208 /* DataModel.swift in Sources */,
 				F0906E4929B2C791009289A3 /* BrandDataModel.swift in Sources */,
 				F0E9ADF229B0288300A9D208 /* NetworkManger.swift in Sources */,
+				18940AEB29B4C4DC0097F698 /* registerDataModel.swift in Sources */,
 				AF1CD7D729AFCCA200DA4EE9 /* CouponCollectionViewCell.swift in Sources */,
 				AF0F701329AE104800077816 /* HomeViewController.swift in Sources */,
 				F043C26429B07F0C00DA7AA5 /* CategoryViewController.swift in Sources */,
 				44156EA829B3ED1200FF473B /* productInfoViewController.swift in Sources */,
+				18940AED29B4C5D40097F698 /* Encodable + extension.swift in Sources */,
 				F0E9ADF929B0499B00A9D208 /* HomeViewExtension.swift in Sources */,
 				F0E9ADF729B02D5200A9D208 /* HomeViewModel.swift in Sources */,
+				18940AE929B4B97D0097F698 /* URLs.swift in Sources */,
 				AF0F700F29AE104800077816 /* AppDelegate.swift in Sources */,
 				F0E9ADEF29B0182A00A9D208 /* BrandsCollectionViewCell.swift in Sources */,
+				18940AF029B4C6920097F698 /* helper.swift in Sources */,
 				F043C26629B0898C00DA7AA5 /* CategoryViewModel.swift in Sources */,
 				44156EAE29B3EDB800FF473B /* productInfoDataModel.swift in Sources */,
 				F043C26229B07EE200DA7AA5 /* CategoryCollectionViewCell.swift in Sources */,
