@@ -1,19 +1,23 @@
 PODS:
   - Kingfisher (4.10.1)
   - ReachabilitySwift (5.0.0)
+  - ValidationTextField (1.0.4)
 
 DEPENDENCIES:
   - Kingfisher
   - ReachabilitySwift
+  - ValidationTextField
 
 SPEC REPOS:
   trunk:
     - Kingfisher
     - ReachabilitySwift
+    - ValidationTextField
 
 SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  ValidationTextField: 91bc04170ba4b4358912c372e12d7af4c9143ad5
 
 PODFILE CHECKSUM: d6efee323772109dbaa81ca2a4c2fc67c45bb193
 
