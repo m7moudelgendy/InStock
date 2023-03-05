@@ -36,7 +36,7 @@ class BrandDetailsVC: UIViewController , BrandViewProtocol {
             }
         }
         
-         let productUrl = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mmad-ios-1.myshopify.com/admin/api/2023-01/products.json?collection_id=\(brandID)"
+         let productUrl = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products.json?collection_id=\(brandID)"
         
         viewModel.getBrandProducts(link: productUrl)
         
