@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCECB23CB1F2C14C42E61BC8E78B4706"
-               BuildableName = "Pods_InStock_InStockUITests.framework"
-               BlueprintName = "Pods-InStock-InStockUITests"
+               BlueprintIdentifier = "B222B2D3CB3BFE0816AAD3AD8F587325"
+               BuildableName = "ValidationTextField.framework"
+               BlueprintName = "ValidationTextField"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

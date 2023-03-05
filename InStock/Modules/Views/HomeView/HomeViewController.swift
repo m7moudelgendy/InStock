@@ -43,6 +43,10 @@ class HomeViewController: UIViewController , HomeViewProtocol {
         self.BrandsCollectionView.reloadData()
     }
     
+    @IBAction func SearchBtn(_ sender: Any) {
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
     
 }
 

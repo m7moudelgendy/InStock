@@ -37,7 +37,11 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
         
     }
 
-        
+    @IBAction func searchBtn(_ sender: Any) {
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+    
     }
     
    

@@ -32,7 +32,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         collectionView.dataSource = self
         collectionView.layer.cornerRadius = 20
         productDescrip.layer.cornerRadius = 10
-        let productInfoURL = "https://a546963db1d86b6cdc7f01928132e7f7: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@mad-4-ism2023.myshopify.com/admin/api/2023-01/products/\(productID).json?collection_id=\(collectionID)"
+        let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mmad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json?collection_id=\(collectionID)"
  
         viewModelOBJ.getProductInfo(UrlLink: productInfoURL)
         viewModelOBJ.bindResultToProductView = {[weak self] in

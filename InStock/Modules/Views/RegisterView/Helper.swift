@@ -1,10 +1,3 @@
-//
-//  helper.swift
-//  InStock
-//
-//  Created by Hader on 5/3/23.
-//
-
 import Foundation
 import UIKit
 class  Helper {
