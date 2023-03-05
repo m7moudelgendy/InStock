@@ -14,5 +14,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryPrice: UILabel!
     
+    @IBOutlet weak var productName: UILabel!
     
+    @IBOutlet weak var productType: UILabel!
 }

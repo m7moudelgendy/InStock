@@ -35,6 +35,8 @@ class HomeViewController: UIViewController , HomeViewProtocol {
         
         viewModel.getBrands()
         
+        
+        
     }
     
     func renderBrandCollection() {

@@ -10,7 +10,9 @@ import UIKit
 
 
 class HomeViewModel{
-    var couponArr : [Coupon] = [Coupon(photo: UIImage(named: "coupon1")!, title: "coupon20"),Coupon(photo: UIImage(named: "coupon2")!, title: "coupon50"),Coupon(photo: UIImage(named: "coupon3")!, title: "coupon70")]    
+    var couponArr : [Coupon] = [Coupon(photo: UIImage(named: "coupon1")!, title: "coupon20"),Coupon(photo: UIImage(named: "coupon2")!, title: "coupon50"),Coupon(photo: UIImage(named: "coupon3")!, title: "coupon70")]
+    
+    
     var bindResultToHomeView : (() -> ()) = {}
     var result : [Brands] = []{
         didSet{
@@ -18,6 +20,13 @@ class HomeViewModel{
             bindResultToHomeView()
         }
     }
+    var products : [ProductDetails] = [] {
+        didSet{
+            //bind the result
+            bindResultToHomeView()
+        }
+    }
+    
     
     func getBrands(){
         
@@ -25,5 +34,16 @@ class HomeViewModel{
             self?.result = data?.smart_collections ?? []
         }
     }
+    
+    func getBrandProducts(link : String){
+        
+    
+        NetworkManger.fetchData(apiLink: link){[weak self] (data: BrandProducts?) in
+            self?.products = data?.products ?? []
+            
+        }
+    }
+    
+    
     
 }

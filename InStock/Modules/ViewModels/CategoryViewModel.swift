@@ -12,18 +12,19 @@ import UIKit
 class CategoryViewModel{
 
     var bindResultToHomeView : (() -> ()) = {}
-    var result : [Brands] = []{
+    var category : [ProductDetails] = []{
         didSet{
             //bind the result
             bindResultToHomeView()
         }
     }
     
-    func getBrands(){
+    func getBrandProducts(link : String){
         
-        NetworkManger.fetchData(apiLink: apiLinks.Brands.rawValue){[weak self] (data: SmartCollections?) in
-            self?.result = data?.smart_collections ?? []
+    
+        NetworkManger.fetchData(apiLink: link){[weak self] (data: BrandProducts?) in
+            self?.category = data?.products ?? []
+            
         }
     }
-    
 }
