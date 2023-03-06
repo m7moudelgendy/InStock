@@ -12,7 +12,10 @@ class CartViewController: UIViewController {
 
     var cart = CartModel()
     var quantity = 1
+    var totalPrice = 0.0
     @IBOutlet weak var cartTable: UITableView!
+    
+    @IBOutlet weak var subTotal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,16 @@ class CartViewController: UIViewController {
         if CartRepo().local.isExist() {
             cart = CartRepo().local.get()!
         }
+        DispatchQueue.main.async { [self] in
+            for item in cart.products {
+                totalPrice += (item.price as NSString).doubleValue
+            }
+            subTotal.layer.borderColor = UIColor.darkGray.cgColor
+            subTotal.layer.borderWidth = 3.0
+            subTotal.text = "  Sub Total:  \(totalPrice) EGP"
+            cartTable.reloadData()
+        }
+        
         cartTable.reloadData()
        
     }
@@ -41,6 +54,10 @@ class CartViewController: UIViewController {
         }
   
     }
+    
+    @IBAction func btnProceedClicked(_ sender: Any) {
+        
+    }
 }
 extension CartViewController : UITableViewDelegate , UITableViewDataSource {
     
@@ -53,20 +70,18 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         let url = URL(string: cart.products[indexPath.row].imageUrl)
         cell.productImage.kf.setImage(with: url)
         cell.productName.text = cart.products[indexPath.row].title
-        cell.productPrice.text = "\(cart.products[indexPath.row].price) EGP"
+        cell.productPrice.text = cart.products[indexPath.row].price
         cell.productQuantity.text = "\(quantity)"
+        
         return cell
     }
     
-//    private func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-//    {
-//        cart.products.remove(at: indexPath.row)
-//        CartRepo().local.store(key: .Cart, object: cart)
-//        cartTable.reloadData()
-//    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        totalPrice -= (cart.products[indexPath.row].price as NSString).doubleValue
         cart.products.remove(at: indexPath.row)
         CartRepo().local.store(key: .Cart, object: cart)
+        
+        subTotal.text = "  Sub Total:  \(totalPrice) EGP"
         cartTable.reloadData()
     }
 }

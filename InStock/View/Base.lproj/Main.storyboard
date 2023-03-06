@@ -1161,7 +1161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kr-4u-p1w">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="644"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="121" id="DYC-VJ-Se6" customClass="CartViewCell" customModule="InStock" customModuleProvider="target">
@@ -1254,18 +1254,46 @@
                                     <outlet property="delegate" destination="trL-ID-DTq" id="7tP-em-EgI"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-dg-xSo">
+                                <rect key="frame" x="80" y="768" width="233" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Proceed To Buy" cornerStyle="medium">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="29"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.56862745100000001" green="0.19215686269999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addToCartBT:" destination="DDD-Vo-svO" eventType="touchUpInside" id="JQN-u7-Kzn"/>
+                                    <action selector="btnProceedClicked:" destination="trL-ID-DTq" eventType="touchUpInside" id="TC9-6c-Jkz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfH-a2-UWd">
+                                <rect key="frame" x="16" y="719" width="207" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7c0-zs-dCe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="o7P-dg-xSo" firstAttribute="top" secondItem="8Kr-4u-p1w" secondAttribute="bottom" constant="65" id="3k9-AI-537"/>
                             <constraint firstItem="7c0-zs-dCe" firstAttribute="trailing" secondItem="8Kr-4u-p1w" secondAttribute="trailing" id="6EF-CI-irl"/>
                             <constraint firstItem="8Kr-4u-p1w" firstAttribute="top" secondItem="7c0-zs-dCe" secondAttribute="top" id="7MX-27-3vZ"/>
-                            <constraint firstItem="7c0-zs-dCe" firstAttribute="bottom" secondItem="8Kr-4u-p1w" secondAttribute="bottom" id="nDQ-0f-Zel"/>
+                            <constraint firstItem="7c0-zs-dCe" firstAttribute="trailing" secondItem="zfH-a2-UWd" secondAttribute="trailing" constant="170" id="Ame-hb-65Z"/>
+                            <constraint firstItem="zfH-a2-UWd" firstAttribute="top" secondItem="8Kr-4u-p1w" secondAttribute="bottom" constant="16" id="Vib-n7-Fko"/>
+                            <constraint firstItem="o7P-dg-xSo" firstAttribute="top" secondItem="zfH-a2-UWd" secondAttribute="bottom" constant="9" id="bNc-3u-6zd"/>
+                            <constraint firstItem="zfH-a2-UWd" firstAttribute="leading" secondItem="7c0-zs-dCe" secondAttribute="leading" constant="16" id="jHS-aE-wYt"/>
+                            <constraint firstItem="7c0-zs-dCe" firstAttribute="bottom" secondItem="8Kr-4u-p1w" secondAttribute="bottom" constant="115" id="nDQ-0f-Zel"/>
+                            <constraint firstItem="o7P-dg-xSo" firstAttribute="bottom" secondItem="7c0-zs-dCe" secondAttribute="bottom" constant="-7" id="nhB-2r-i4l"/>
+                            <constraint firstItem="7c0-zs-dCe" firstAttribute="trailing" secondItem="o7P-dg-xSo" secondAttribute="trailing" constant="80" id="veY-dx-Wbj"/>
+                            <constraint firstItem="o7P-dg-xSo" firstAttribute="leading" secondItem="7c0-zs-dCe" secondAttribute="leading" constant="80" id="wYL-C3-TGx"/>
                             <constraint firstItem="8Kr-4u-p1w" firstAttribute="leading" secondItem="7c0-zs-dCe" secondAttribute="leading" id="yAX-t0-jmV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cartTable" destination="8Kr-4u-p1w" id="cSM-h4-M8h"/>
+                        <outlet property="subTotal" destination="zfH-a2-UWd" id="ulM-v9-YSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jh-mt-MX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
