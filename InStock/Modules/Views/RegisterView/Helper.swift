@@ -5,12 +5,12 @@ class  Helper {
 
      
         func addWaveBackground(to view: UIView){
-            let leftDrop:CGFloat = 0.4
-            let rightDrop: CGFloat = 0.3
-            let leftInflexionX: CGFloat = 0.4
-            let leftInflexionY: CGFloat = 0.47
-            let rightInflexionX: CGFloat = 0.6
-            let rightInflexionY: CGFloat = 0.22
+            let leftDrop:CGFloat = 0.32
+            let rightDrop: CGFloat = 0.289
+            let leftInflexionX: CGFloat = 0.37
+            let leftInflexionY: CGFloat = 0.455
+            let rightInflexionX: CGFloat = 0.58
+            let rightInflexionY: CGFloat = 0.21
             
           
             let backLayer = CAShapeLayer()
