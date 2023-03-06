@@ -42,7 +42,7 @@ class CartViewController: UIViewController {
   
     }
 }
-extension CartViewController : UITableViewDelegate , UITableViewDataSource{
+extension CartViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cart.products.count
@@ -58,4 +58,15 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource{
         return cell
     }
     
+//    private func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//        cart.products.remove(at: indexPath.row)
+//        CartRepo().local.store(key: .Cart, object: cart)
+//        cartTable.reloadData()
+//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cart.products.remove(at: indexPath.row)
+        CartRepo().local.store(key: .Cart, object: cart)
+        cartTable.reloadData()
+    }
 }
