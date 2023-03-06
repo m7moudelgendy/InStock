@@ -24,6 +24,13 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     @IBOutlet weak var collectionView: UICollectionView!
     var collectionID = 0
     var productID = 0
+    //cart object
+    var addedToCart: Bool = false
+    var cart = CartModel()
+    var proImageUrl : String?
+    var proName : String?
+    var proPrice : String?
+    
     var viewModelOBJ : ProductInfoViewModel = ProductInfoViewModel()
     
     override func viewDidLoad() {
@@ -32,6 +39,11 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         collectionView.dataSource = self
         collectionView.layer.cornerRadius = 20
         productDescrip.layer.cornerRadius = 10
+        
+        if CartRepo().local.isExist() {
+            cart = CartRepo().local.get()!
+        }
+        
         let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json?collection_id=\(collectionID)"
  
         viewModelOBJ.getProductInfo(UrlLink: productInfoURL)
@@ -53,6 +65,24 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     }
 
     @IBAction func addToCartBT(_ sender: Any) {
+        
+        let product = CartProductModel(title: proName!, imageUrl: proImageUrl!, price: proPrice!)
+        
+        for prod in cart.products {
+            if prod.title == product.title {
+                addedToCart = true
+                print("This item already added to the cart")
+            }
+        }
+        
+        if !addedToCart {
+            cart.products.append(product)
+            CartRepo().local.store(key: .Cart, object: cart)
+            print("Cart count: ", CartRepo().local.get()?.products.count)
+            addedToCart = false
+            dismiss(animated: true)
+        }
+        
     }
     
     @IBAction func favouriteBT(_ sender: Any) {

@@ -68,6 +68,9 @@ extension BrandDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
         let productInfo = self.storyboard?.instantiateViewController(withIdentifier: "productInfoViewController") as! productInfoViewController
         productInfo.collectionID = brandID
         productInfo.productID = viewModel.products[indexPath.row].id!
+        productInfo.proName = viewModel.products[indexPath.row].title
+        productInfo.proImageUrl = viewModel.products[indexPath.row].image.src
+        productInfo.proPrice = viewModel.products[indexPath.row].variants[0].price! + "EGP"
         self.navigationController?.pushViewController(productInfo, animated: true)
     }
 }

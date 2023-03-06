@@ -48,5 +48,11 @@ class HomeViewController: UIViewController , HomeViewProtocol {
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
+    @IBAction func btnCartClicked(_ sender: Any) {
+        let cartVC = self.storyboard?.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+        
+        self.navigationController?.pushViewController(cartVC, animated: true)
+    }
+    
 }
 
