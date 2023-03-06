@@ -31,20 +31,29 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
             }
         }
         
-         let productUrl = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json"
+        let productUrl = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json"
         
         viewModel.getBrandProducts(link: productUrl)
         
     }
-
+    
     @IBAction func searchBtn(_ sender: Any) {
         let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
+    @IBAction func btnCartClicked(_ sender: Any) {
+        
+        let cartVC = self.storyboard?.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+        
+        self.navigationController?.pushViewController(cartVC, animated: true)
+        
     }
     
-   
+    
+}
+
+
 
 
 
@@ -89,7 +98,7 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 4
     }
-
+    
     
     
 }
