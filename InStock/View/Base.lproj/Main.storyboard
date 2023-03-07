@@ -338,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xOO-jj-PKT">
-                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MI0-7R-8D7">
                                     <size key="itemSize" width="155" height="157"/>
@@ -833,10 +833,10 @@
                                 <rect key="frame" x="13" y="304" width="367" height="366"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="pio-rA-SWD">
-                                        <rect key="frame" x="53" y="-12.333333333333314" width="255" height="358.33333333333331"/>
+                                        <rect key="frame" x="53" y="-12.333333333333314" width="255" height="294"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sTg-68-pN4" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="0.0" width="255" height="47.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="34"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -850,7 +850,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2uU-zA-juE" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="78.666666666666629" width="255" height="47.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="65" width="255" height="34"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -864,7 +864,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rs6-JL-MRX" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="157.33333333333331" width="255" height="46.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="130" width="255" height="34"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -878,7 +878,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Z2M-HI-imU" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="234.66666666666671" width="255" height="46.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="195" width="255" height="34"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -892,7 +892,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NYj-PM-bqI" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="311.99999999999994" width="255" height="46.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="259.99999999999994" width="255" height="34"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1012,7 +1012,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOP-fb-D2b">
-                                <rect key="frame" x="60" y="103" width="273" height="65"/>
+                                <rect key="frame" x="60" y="128" width="273" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="qyr-PP-Sk9"/>
                                 </constraints>
@@ -1027,11 +1027,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="loginBGCard" translatesAutoresizingMaskIntoConstraints="NO" id="4t7-rp-68W">
-                                <rect key="frame" x="13" y="186" width="367" height="497"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBGCard" translatesAutoresizingMaskIntoConstraints="NO" id="4t7-rp-68W">
+                                <rect key="frame" x="13" y="280" width="367" height="477"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nxd-y0-uC7" customClass="ValidationTextField" customModule="ValidationTextField">
-                                <rect key="frame" x="57" y="503.66666666666669" width="279" height="46.666666666666686"/>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nxd-y0-uC7" customClass="ValidationTextField" customModule="ValidationTextField">
+                                <rect key="frame" x="57" y="558.66666666666663" width="279" height="34"/>
                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1044,8 +1044,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="lock" catalog="system"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-ns-O6R" customClass="ValidationTextField" customModule="ValidationTextField">
-                                <rect key="frame" x="57" y="439.66666666666669" width="279" height="46.333333333333314"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-ns-O6R" customClass="ValidationTextField" customModule="ValidationTextField">
+                                <rect key="frame" x="57" y="479.66666666666669" width="279" height="34.000000000000057"/>
                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1060,7 +1060,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOz-N3-8ud">
-                                <rect key="frame" x="63" y="578" width="266" height="64"/>
+                                <rect key="frame" x="63" y="637.66666666666663" width="266" height="38.333333333333371"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.19215686269999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="25"/>
                                 <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
@@ -1069,18 +1069,24 @@
                                     <action selector="SigninBtn:" destination="sAP-LI-AVa" eventType="touchUpInside" id="mBx-Pf-fPC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-fS-pYQ">
-                                <rect key="frame" x="140" y="721" width="112" height="32"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="New user ?">
-                                    <color key="titleColor" red="0.74901960779999999" green="0.0" blue="0.51764705879999995" alpha="0.66890517979999997" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-fS-pYQ">
+                                <rect key="frame" x="127" y="731" width="139" height="37"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="New user ?">
+                                            <attributes>
+                                                <color key="NSColor" red="0.56862745100000001" green="0.19215686269999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="22" name="Georgia-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="newUserBtn:" destination="sAP-LI-AVa" eventType="touchUpInside" id="ck7-Ks-06M"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-aliexpress-250" translatesAutoresizingMaskIntoConstraints="NO" id="qCb-Ar-58R">
-                                <rect key="frame" x="135" y="278" width="123" height="107"/>
+                                <rect key="frame" x="135" y="318" width="123" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="K61-YL-pJh"/>
                                     <constraint firstAttribute="width" constant="123" id="p5C-wH-GXj"/>
@@ -1091,24 +1097,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="4t7-rp-68W" secondAttribute="trailing" constant="13" id="0IQ-J9-Q3X"/>
-                            <constraint firstItem="oOz-N3-8ud" firstAttribute="top" secondItem="nxd-y0-uC7" secondAttribute="bottom" constant="27.670000000000002" id="2SS-fc-idV"/>
                             <constraint firstItem="Yyy-ns-O6R" firstAttribute="top" secondItem="qCb-Ar-58R" secondAttribute="bottom" constant="54.670000000000002" id="66Z-15-Dau"/>
                             <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="oOz-N3-8ud" secondAttribute="trailing" constant="64" id="ASF-NH-ZUA"/>
                             <constraint firstItem="4t7-rp-68W" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="13" id="AdN-KE-sac"/>
                             <constraint firstItem="qCb-Ar-58R" firstAttribute="top" secondItem="HOP-fb-D2b" secondAttribute="bottom" constant="110" id="HB1-d4-Mzq"/>
-                            <constraint firstItem="a7g-fS-pYQ" firstAttribute="top" secondItem="4t7-rp-68W" secondAttribute="bottom" constant="29.666666666666629" id="JWQ-FQ-7be"/>
+                            <constraint firstItem="a7g-fS-pYQ" firstAttribute="top" secondItem="4t7-rp-68W" secondAttribute="bottom" constant="-26" id="JWQ-FQ-7be"/>
+                            <constraint firstItem="nxd-y0-uC7" firstAttribute="top" secondItem="Yyy-ns-O6R" secondAttribute="bottom" constant="45" id="MiM-jq-b47"/>
                             <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="nxd-y0-uC7" secondAttribute="trailing" constant="57" id="Nli-r1-XD4"/>
                             <constraint firstItem="qCb-Ar-58R" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="135" id="NyW-y7-hjo"/>
                             <constraint firstItem="Yyy-ns-O6R" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="57" id="S55-CT-ewj"/>
-                            <constraint firstItem="a7g-fS-pYQ" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="140" id="TA6-lZ-uqq"/>
+                            <constraint firstItem="a7g-fS-pYQ" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="127" id="TA6-lZ-uqq"/>
                             <constraint firstItem="HOP-fb-D2b" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="60" id="Zja-YK-jkL"/>
-                            <constraint firstItem="U7O-aK-JRI" firstAttribute="bottom" secondItem="a7g-fS-pYQ" secondAttribute="bottom" constant="65" id="Zqd-LK-WCE"/>
                             <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="HOP-fb-D2b" secondAttribute="trailing" constant="60" id="aEE-Xa-IyA"/>
-                            <constraint firstItem="nxd-y0-uC7" firstAttribute="top" secondItem="Yyy-ns-O6R" secondAttribute="bottom" constant="17.670000000000002" id="aWS-Ik-3qM"/>
-                            <constraint firstItem="a7g-fS-pYQ" firstAttribute="top" secondItem="oOz-N3-8ud" secondAttribute="bottom" constant="79" id="ckw-y8-G3H"/>
+                            <constraint firstItem="U7O-aK-JRI" firstAttribute="bottom" secondItem="a7g-fS-pYQ" secondAttribute="bottom" constant="50" id="b5w-ZT-4wl"/>
+                            <constraint firstItem="oOz-N3-8ud" firstAttribute="top" secondItem="nxd-y0-uC7" secondAttribute="bottom" constant="45" id="bOI-8X-BQI"/>
                             <constraint firstItem="HOP-fb-D2b" firstAttribute="top" secondItem="U7O-aK-JRI" secondAttribute="top" constant="25" id="f9U-0B-Tcg"/>
                             <constraint firstItem="oOz-N3-8ud" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="63" id="i2M-2X-AkO"/>
-                            <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="a7g-fS-pYQ" secondAttribute="trailing" constant="141" id="ngE-G9-ARP"/>
+                            <constraint firstItem="a7g-fS-pYQ" firstAttribute="top" secondItem="oOz-N3-8ud" secondAttribute="bottom" constant="55" id="mFp-aN-Dvc"/>
+                            <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="a7g-fS-pYQ" secondAttribute="trailing" constant="127" id="ngE-G9-ARP"/>
                             <constraint firstItem="nxd-y0-uC7" firstAttribute="leading" secondItem="U7O-aK-JRI" secondAttribute="leading" constant="57" id="pid-cV-5KY"/>
                             <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="Yyy-ns-O6R" secondAttribute="trailing" constant="57" id="uFn-Dh-c74"/>
                             <constraint firstItem="U7O-aK-JRI" firstAttribute="trailing" secondItem="qCb-Ar-58R" secondAttribute="trailing" constant="135" id="y0s-iL-slf"/>
@@ -1333,25 +1339,25 @@
     </scenes>
     <designables>
         <designable name="2uU-zA-juE">
-            <size key="intrinsicContentSize" width="255" height="47.607421875"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="34"/>
         </designable>
         <designable name="NYj-PM-bqI">
-            <size key="intrinsicContentSize" width="255" height="46.4140625"/>
+            <size key="intrinsicContentSize" width="132.33333333333334" height="34"/>
         </designable>
         <designable name="Rs6-JL-MRX">
-            <size key="intrinsicContentSize" width="255" height="46.4140625"/>
+            <size key="intrinsicContentSize" width="128" height="34"/>
         </designable>
         <designable name="Yyy-ns-O6R">
-            <size key="intrinsicContentSize" width="279" height="46.4140625"/>
+            <size key="intrinsicContentSize" width="132.33333333333334" height="34"/>
         </designable>
         <designable name="Z2M-HI-imU">
-            <size key="intrinsicContentSize" width="255" height="46.4140625"/>
+            <size key="intrinsicContentSize" width="145.33333333333334" height="34"/>
         </designable>
         <designable name="nxd-y0-uC7">
-            <size key="intrinsicContentSize" width="279" height="46.4140625"/>
+            <size key="intrinsicContentSize" width="128" height="34"/>
         </designable>
         <designable name="sTg-68-pN4">
-            <size key="intrinsicContentSize" width="255" height="47.607421875"/>
+            <size key="intrinsicContentSize" width="171" height="34"/>
         </designable>
     </designables>
     <resources>

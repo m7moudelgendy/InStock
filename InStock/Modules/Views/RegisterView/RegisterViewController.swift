@@ -2,6 +2,7 @@
 
 import UIKit
 import ValidationTextField
+import CoreData
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: ValidationTextField!
@@ -39,12 +40,15 @@ class RegisterViewController: UIViewController {
 
         }
         print("user added to server successfully ")
+        
+        CoreDataManager.SaveToCoreData(firstName: name, lastName: lastName, email: email)
+        
        
     }
     func validation (){
         nameTextField.validCondition = {$0.count > 3}
         lastNameTextField.validCondition = {$0.count > 3}
-        emailTextField.validCondition = {$0.count > 5 && $0.contains("@")}
+        emailTextField.validCondition = {$0.count > 5 && $0.contains("@") && $0.contains(".com") }
         passwordTextField.validCondition = {$0.count > 8}
         passwordConfirmTextField.validCondition = {
             guard let password = self.passwordTextField.text else {
@@ -113,6 +117,9 @@ class RegisterViewController: UIViewController {
 
  
     @IBAction func SignInBtn(_ sender: Any) {
+        let x = CoreDataManager.FetchFromCoreData()
+        print(x.count)
+        
         let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
    
            self.navigationController?.pushViewController(signInVC, animated: true)
