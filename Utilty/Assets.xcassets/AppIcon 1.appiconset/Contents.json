@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "Logo_Maker_com.ist.logomaker_Sat_Mar_04_05_19_31_GMT_02_00_2023_1677899971757_1024x1024.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

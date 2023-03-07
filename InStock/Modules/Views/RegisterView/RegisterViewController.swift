@@ -6,6 +6,7 @@ import ValidationTextField
 class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: ValidationTextField!
     @IBOutlet weak var passwordTextField: ValidationTextField!
+    @IBOutlet weak var lastNameTextField: ValidationTextField!
     @IBOutlet weak var passwordConfirmTextField: ValidationTextField!
     @IBOutlet weak var emailTextField: ValidationTextField!
     @IBOutlet weak var comfirmButton: UIButton!
@@ -23,11 +24,14 @@ class RegisterViewController: UIViewController {
  //   Register Btn
     @IBAction func signUpConfirmBtn(_ sender: UIButton) {
         guard let name = nameTextField.text else {return}
+        guard let lastName = lastNameTextField.text else {return}
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
+        print("btttm")
     }
     func validation (){
-        nameTextField.validCondition = {$0.count > 5}
+        nameTextField.validCondition = {$0.count > 3}
+        lastNameTextField.validCondition = {$0.count > 3}
         emailTextField.validCondition = {$0.count > 5 && $0.contains("@")}
         passwordTextField.validCondition = {$0.count > 8}
         passwordConfirmTextField.validCondition = {
@@ -38,6 +42,7 @@ class RegisterViewController: UIViewController {
         }
 
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        lastNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         passwordConfirmTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -45,6 +50,9 @@ class RegisterViewController: UIViewController {
         nameTextField.successImage = UIImage(named: "success")
         nameTextField.errorImage = UIImage(named: "error")
 
+        lastNameTextField.successImage = UIImage(named: "success")
+        lastNameTextField.errorImage = UIImage(named: "error")
+        
         passwordTextField.successImage = UIImage(named: "thumb_up")
         passwordTextField.errorImage = UIImage(named: "thumb_down")
 
@@ -54,7 +62,7 @@ class RegisterViewController: UIViewController {
         emailTextField.successImage = UIImage(named: "success")
         emailTextField.errorImage = UIImage(named: "error")
     }
-    var validDic = ["name": false, "email":false, "pw":false, "pwc": false]
+    var validDic = ["name": false, "lastName": false, "email":false, "pw":false, "pwc": false]
 
     var isValid: Bool? {
         didSet {
@@ -67,6 +75,8 @@ class RegisterViewController: UIViewController {
         switch tf {
         case nameTextField:
             validDic["name"] = tf.isValid
+        case lastNameTextField:
+            validDic["lastName"] = tf.isValid
         case emailTextField:
             validDic["email"] = tf.isValid
         case passwordTextField:
