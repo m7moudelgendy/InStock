@@ -2,10 +2,12 @@
 
 import UIKit
 import ValidationTextField
+import CoreData
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: ValidationTextField!
     @IBOutlet weak var passwordTextField: ValidationTextField!
+    @IBOutlet weak var lastNameTextField: ValidationTextField!
     @IBOutlet weak var passwordConfirmTextField: ValidationTextField!
     @IBOutlet weak var emailTextField: ValidationTextField!
     
@@ -14,7 +16,10 @@ class RegisterViewController: UIViewController {
     
     var helperObj = Helper  ()
     var registerViewModelOBJ = RegisterViewModel()
+<<<<<<< HEAD
     
+=======
+>>>>>>> main
     override func viewDidLoad() {
         super.viewDidLoad()
       validation()
@@ -29,6 +34,7 @@ class RegisterViewController: UIViewController {
     
     @IBAction func signUpBtn(_ sender: Any) {
         guard let name = nameTextField.text else {return}
+<<<<<<< HEAD
                 guard let lastName = lastNameTextField.text else {return}
                 guard let email = emailTextField.text else {return}
                 guard passwordTextField.text != nil else {return}
@@ -45,15 +51,42 @@ class RegisterViewController: UIViewController {
         
                 }
                 print("After")
+=======
+        guard let lastName = lastNameTextField.text else {return}
+        guard let email = emailTextField.text else {return}
+        guard passwordTextField.text != nil else {return}
+
+        let customerOBJ = customerData()
+        let addedCustomer = newCustomer()
+        customerOBJ.first_name = name
+        customerOBJ.last_name = lastName
+        customerOBJ.email = email
+         //add user to server
+        addedCustomer.customer = customerOBJ
+        registerViewModelOBJ.addNewCustomer(addCustomer: addedCustomer) { data, response, error in
+
+        }
+        print("user added to server successfully ")
+        
+        CoreDataManager.SaveToCoreData(firstName: name, lastName: lastName, email: email)
+        
+       
+>>>>>>> main
     }
     
     
     
     
     func validation (){
+<<<<<<< HEAD
         nameTextField.validCondition = {$0.count > 5}
         lastNameTextField.validCondition = {$0.count > 5}
         emailTextField.validCondition = {$0.count > 5 && $0.contains("@")}
+=======
+        nameTextField.validCondition = {$0.count > 3}
+        lastNameTextField.validCondition = {$0.count > 3}
+        emailTextField.validCondition = {$0.count > 5 && $0.contains("@") && $0.contains(".com") }
+>>>>>>> main
         passwordTextField.validCondition = {$0.count > 8}
         passwordConfirmTextField.validCondition = {
             guard let password = self.passwordTextField.text else {
@@ -74,6 +107,9 @@ class RegisterViewController: UIViewController {
         lastNameTextField.successImage = UIImage(named: "success")
         lastNameTextField.errorImage = UIImage(named: "error")
 
+        lastNameTextField.successImage = UIImage(named: "success")
+        lastNameTextField.errorImage = UIImage(named: "error")
+        
         passwordTextField.successImage = UIImage(named: "thumb_up")
         passwordTextField.errorImage = UIImage(named: "thumb_down")
 
@@ -83,7 +119,11 @@ class RegisterViewController: UIViewController {
         emailTextField.successImage = UIImage(named: "success")
         emailTextField.errorImage = UIImage(named: "error")
     }
+<<<<<<< HEAD
     var validDic = ["name": false, "lastName": false,"email":false, "pw":false, "pwc": false]
+=======
+    var validDic = ["name": false, "lastName": false, "email":false, "pw":false, "pwc": false]
+>>>>>>> main
 
     var isValid: Bool? {
         didSet {
@@ -122,6 +162,9 @@ class RegisterViewController: UIViewController {
 
  
     @IBAction func SignInBtn(_ sender: Any) {
+        let x = CoreDataManager.FetchFromCoreData()
+        print(x.count)
+        
         let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
    
            self.navigationController?.pushViewController(signInVC, animated: true)
