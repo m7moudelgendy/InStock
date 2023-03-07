@@ -11,7 +11,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: ValidationTextField!
     @IBOutlet weak var comfirmButton: UIButton!
     var helperObj = Helper  ()
-    
+    var registerViewModelOBJ = RegisterViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
       validation()
@@ -26,8 +26,20 @@ class RegisterViewController: UIViewController {
         guard let name = nameTextField.text else {return}
         guard let lastName = lastNameTextField.text else {return}
         guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
-        print("btttm")
+        guard passwordTextField.text != nil else {return}
+
+        let customerOBJ = customerData()
+        let addedCustomer = newCustomer()
+        customerOBJ.first_name = name
+        customerOBJ.last_name = lastName
+        customerOBJ.email = email
+         //add user to server
+        addedCustomer.customer = customerOBJ
+        registerViewModelOBJ.addNewCustomer(addCustomer: addedCustomer) { data, response, error in
+
+        }
+        print("user added to server successfully ")
+       
     }
     func validation (){
         nameTextField.validCondition = {$0.count > 3}
