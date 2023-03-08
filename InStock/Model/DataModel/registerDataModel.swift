@@ -15,6 +15,10 @@ class newCustomer : Codable {
     var customer : customerData?
 }
 
+class LoggedCustomer : Codable {
+    var customers : customerData
+}
+
 class customerData : Codable {
     var id : Int?
     var email : String?
