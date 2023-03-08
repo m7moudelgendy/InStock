@@ -8,6 +8,7 @@ target 'InStock' do
   # Pods for InStock
 pod 'ValidationTextField'
 pod 'Kingfisher'
+pod 'Floaty'
 pod 'ReachabilitySwift'
   target 'InStockTests' do
     inherit! :search_paths

@@ -1,24 +1,28 @@
 PODS:
+  - Floaty (4.1.0)
   - Kingfisher (4.10.1)
   - ReachabilitySwift (5.0.0)
   - ValidationTextField (1.0.4)
 
 DEPENDENCIES:
+  - Floaty
   - Kingfisher
   - ReachabilitySwift
   - ValidationTextField
 
 SPEC REPOS:
   trunk:
+    - Floaty
     - Kingfisher
     - ReachabilitySwift
     - ValidationTextField
 
 SPEC CHECKSUMS:
+  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   ValidationTextField: 91bc04170ba4b4358912c372e12d7af4c9143ad5
 
-PODFILE CHECKSUM: 1ddb789dbdd4764c7634f0001b45aa5986298f23
+PODFILE CHECKSUM: 176b027a23acd842d8a61f2ce9903add44a06605
 
 COCOAPODS: 1.11.3
