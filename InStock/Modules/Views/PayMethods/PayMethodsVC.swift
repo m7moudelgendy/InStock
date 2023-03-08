@@ -114,6 +114,7 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
             }else
             {
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+                payMethodsTable.cellForRow(at: [1,0])?.accessoryType = UITableViewCell.AccessoryType.none
                 payCheck = true
             }
 
@@ -126,6 +127,7 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
             }else
             {
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+                payMethodsTable.cellForRow(at: [0,0])?.accessoryType = UITableViewCell.AccessoryType.none
                 payCheck = false
             }
         }
