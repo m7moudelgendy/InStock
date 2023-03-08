@@ -13,10 +13,11 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
     @IBOutlet weak var payMethodsTable: UITableView!
     var unchecked = true
     var payCheck = false
+    var totalPayments : NSDecimalNumber?
     let sections = ["Online Payment","More Payment Option"]
     var arr = [["Apple Pay"] , ["Cash On Delivery"]]
     
-    private var paymentRequest : PKPaymentRequest = {
+    private lazy var paymentRequest : PKPaymentRequest = {
         
         let request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.iti.PaymentMethodDemo"
@@ -25,7 +26,7 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
         request.merchantCapabilities = .capability3DS
         request.countryCode = "EG"
         request.currencyCode = "EGP"
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "iphone", amount: 15000)]
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "iphone", amount: totalPayments!)]
         return request
     }()
     override func viewDidLoad() {

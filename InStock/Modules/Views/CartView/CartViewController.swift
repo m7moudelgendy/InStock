@@ -57,8 +57,9 @@ class CartViewController: UIViewController {
     
     @IBAction func btnProceedClicked(_ sender: Any) {
         
-        let payMethodVC = self.storyboard?.instantiateViewController(withIdentifier: "PayMethodsVC") as! PayMethodsVC
-        self.navigationController?.pushViewController(payMethodVC, animated: true)
+        let payMethod = self.storyboard?.instantiateViewController(withIdentifier: "PayMethodsVC") as! PayMethodsVC
+        payMethod.totalPayments = NSDecimalNumber(string: "\(totalPrice)")
+        self.navigationController?.pushViewController(payMethod, animated: true)
         
     }
 }
