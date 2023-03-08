@@ -39,6 +39,7 @@
 		AF0F703329AE104B00077816 /* InStockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F703229AE104B00077816 /* InStockUITests.swift */; };
 		AF0F703529AE104B00077816 /* InStockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F703429AE104B00077816 /* InStockUITestsLaunchTests.swift */; };
 		AF1CD7D729AFCCA200DA4EE9 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */; };
+		AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */; };
 		AF9EAA3E29B6001900333702 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA3D29B6001900333702 /* CartViewController.swift */; };
 		AF9EAA4029B6031400333702 /* CartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA3F29B6031400333702 /* CartViewCell.swift */; };
 		AF9EAA4329B6061100333702 /* CartProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA4229B6061100333702 /* CartProductModel.swift */; };
@@ -118,6 +119,8 @@
 		AF0F703229AE104B00077816 /* InStockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStockUITests.swift; sourceTree = "<group>"; };
 		AF0F703429AE104B00077816 /* InStockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsVC.swift; sourceTree = "<group>"; };
+		AF229CFD29B8D2170050D8BE /* InStock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InStock.entitlements; sourceTree = "<group>"; };
 		AF9EAA3D29B6001900333702 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		AF9EAA3F29B6031400333702 /* CartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCell.swift; sourceTree = "<group>"; };
 		AF9EAA4229B6061100333702 /* CartProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductModel.swift; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 		AF0F700D29AE104800077816 /* InStock */ = {
 			isa = PBXGroup;
 			children = (
+				AF229CFD29B8D2170050D8BE /* InStock.entitlements */,
 				18940AE729B4B95A0097F698 /* Constatnt */,
 				F0E9ADEB29B00D6400A9D208 /* View */,
 				F0E9ADE929B00D1C00A9D208 /* Modules */,
@@ -306,6 +310,14 @@
 				AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */,
 			);
 			path = CouponView;
+			sourceTree = "<group>";
+		};
+		AF229CFA29B8D0C80050D8BE /* PayMethods */ = {
+			isa = PBXGroup;
+			children = (
+				AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */,
+			);
+			path = PayMethods;
 			sourceTree = "<group>";
 		};
 		AF9EAA3C29B5FFFA00333702 /* CartView */ = {
@@ -425,6 +437,7 @@
 		F0E9ADEA29B00D5300A9D208 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF229CFA29B8D0C80050D8BE /* PayMethods */,
 				1888E66229B788E100B255A5 /* UserProfileView */,
 				AF9EAA3C29B5FFFA00333702 /* CartView */,
 				447832F629B4F99D0006E045 /* SearchView */,
@@ -754,6 +767,7 @@
 				AF9EAA5229B60D4200333702 /* CartKeyChain.swift in Sources */,
 				F0E9ADEF29B0182A00A9D208 /* BrandsCollectionViewCell.swift in Sources */,
 				1888E66629B7D30100B255A5 /* LoggedUserDataModel.swift in Sources */,
+				AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */,
 				18940AF029B4C6920097F698 /* Helper.swift in Sources */,
 				447832FC29B4FC9C0006E045 /* SearchViewModel.swift in Sources */,
 				F043C26629B0898C00DA7AA5 /* CategoryViewModel.swift in Sources */,
@@ -944,8 +958,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InStock/InStock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VUTMR6DAAQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InStock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -972,8 +988,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InStock/InStock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VUTMR6DAAQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InStock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
