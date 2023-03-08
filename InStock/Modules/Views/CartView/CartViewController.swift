@@ -57,6 +57,9 @@ class CartViewController: UIViewController {
     
     @IBAction func btnProceedClicked(_ sender: Any) {
         
+        let payMethodVC = self.storyboard?.instantiateViewController(withIdentifier: "PayMethodsVC") as! PayMethodsVC
+        self.navigationController?.pushViewController(payMethodVC, animated: true)
+        
     }
 }
 extension CartViewController : UITableViewDelegate , UITableViewDataSource {
