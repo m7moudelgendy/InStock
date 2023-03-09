@@ -11,22 +11,23 @@ import Foundation
 // get all customers from API through customers
 
 
-class newCustomer : Codable {
-    var customer : customerData?
+
+class LoggedCustomer : Decodable {
+    var customers : [loggedCustomerData]
 }
 
-class customerData : Codable {
+class loggedCustomerData : Decodable {
     var id : Int?
     var email : String?
     var first_name : String?
     var last_name : String?
     var orders_count : Int?
     var phone : String?
-    var addresses : [customerAddress]?
+    var addresses : [LoggedCustomerAddress]?
 }
 
 
-class customerAddress : Codable {
+class LoggedCustomerAddress : Decodable {
     var id : Int?
     var customer_id : Int?
     var first_name : String?

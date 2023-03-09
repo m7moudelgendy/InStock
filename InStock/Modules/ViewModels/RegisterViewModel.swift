@@ -44,11 +44,14 @@ class RegisterViewModel {
     
     func getLogedUser (userLink : String) {
         NetworkManger.fetchData(apiLink: userLink) { [weak self] (data : LoggedCustomer?) in
-            
-            self?.userEmail = data?.customers.email ?? ""
-            self?.userFirstName = data?.customers.first_name ?? ""
-            self?.userLastName = data?.customers.last_name ?? ""
-            self?.userID = data?.customers.id ?? 0
+            if data?.customers.count != 0 {
+                self?.userEmail = data?.customers[0].email ?? ""
+                self?.userFirstName = data?.customers[0].first_name ?? ""
+                self?.userLastName = data?.customers[0].last_name ?? ""
+                self?.userID = data?.customers[0].id ?? 0
+            } else {
+                print ("inavlid Email")
+            }
             
         }
         

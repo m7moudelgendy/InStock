@@ -44,24 +44,13 @@ class RegisterViewController: UIViewController {
         registerViewModelOBJ.addNewCustomer(addCustomer: addedCustomer) { data, response, error in
         }
         print("user added to server successfully ")
-       // CoreDataManager.SaveToCoreData(firstName: name, lastName: lastName, email: email, id: 55)
         
-        let userLink = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers/search.json?query=email:\(email)"
-        print(userLink)
-        
-        registerViewModelOBJ.getLogedUser(userLink: userLink)
-        registerViewModelOBJ.bindResultToRegisterView = {[weak self] in
-            DispatchQueue.main.async{
-                self!.coreId = self?.registerViewModelOBJ.userID ?? 12
-                self!.coreEmail = self?.registerViewModelOBJ.userEmail ?? "hh"
-                self!.coreFirstName = self?.registerViewModelOBJ.userFirstName ?? "hh"
-                self!.coreLastName  = self?.registerViewModelOBJ.userLastName ?? "hh"
-                CoreDataManager.SaveToCoreData(firstName: self!.coreFirstName, lastName: self!.coreLastName, email: self!.coreEmail, id: self!.coreId)
-                
-            }
-        }
-        
+        let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+   
+           self.navigationController?.pushViewController(signInVC, animated: true)
        
+        
+        
     }
     func validation (){
         nameTextField.validCondition = {$0.count > 3}
@@ -129,19 +118,6 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-
-    @IBAction func testBtn(_ sender: Any) {
-        let x = CoreDataManager.FetchFromCoreData()
-        print("before delete")
-        print(x.count)
-        CoreDataManager.DeleteFromCoreData()
-        print("after delete")
-        let y = CoreDataManager.FetchFromCoreData()
-        print(y.count)
-        
-    }
-    
 
  
     @IBAction func SignInBtn(_ sender: Any) {

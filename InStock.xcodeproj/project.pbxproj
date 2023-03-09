@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180232E129BA2D7C00606514 /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180232E029BA2D7900606514 /* welcomeViewController.swift */; };
 		1888E66429B7898600B255A5 /* userProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888E66329B7898500B255A5 /* userProfileViewController.swift */; };
-		1888E66629B7D30100B255A5 /* LoggedUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888E66529B7D2FF00B255A5 /* LoggedUserDataModel.swift */; };
+		1888E66629B7D30100B255A5 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888E66529B7D2FF00B255A5 /* LoginDataModel.swift */; };
 		18940AE929B4B97D0097F698 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AE829B4B97D0097F698 /* URLs.swift */; };
 		18940AEB29B4C4DC0097F698 /* registerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEA29B4C4DC0097F698 /* registerDataModel.swift */; };
 		18940AED29B4C5D40097F698 /* Encodable + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEC29B4C5D40097F698 /* Encodable + extension.swift */; };
@@ -81,8 +82,9 @@
 /* Begin PBXFileReference section */
 		004308D6FE6A323CDC447213 /* Pods-InStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStock.release.xcconfig"; path = "Target Support Files/Pods-InStock/Pods-InStock.release.xcconfig"; sourceTree = "<group>"; };
 		0B95FB56A2F6CBD7478B62A7 /* Pods-InStock-InStockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InStock-InStockUITests.release.xcconfig"; path = "Target Support Files/Pods-InStock-InStockUITests/Pods-InStock-InStockUITests.release.xcconfig"; sourceTree = "<group>"; };
+		180232E029BA2D7900606514 /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 		1888E66329B7898500B255A5 /* userProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileViewController.swift; sourceTree = "<group>"; };
-		1888E66529B7D2FF00B255A5 /* LoggedUserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedUserDataModel.swift; sourceTree = "<group>"; };
+		1888E66529B7D2FF00B255A5 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		18940AE829B4B97D0097F698 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		18940AEA29B4C4DC0097F698 /* registerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerDataModel.swift; sourceTree = "<group>"; };
 		18940AEC29B4C5D40097F698 /* Encodable + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + extension.swift"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				1888E66329B7898500B255A5 /* userProfileViewController.swift */,
+				180232E029BA2D7900606514 /* welcomeViewController.swift */,
 			);
 			path = UserProfileView;
 			sourceTree = "<group>";
@@ -489,7 +492,7 @@
 				F0906E4829B2C791009289A3 /* BrandDataModel.swift */,
 				44156EAD29B3EDB800FF473B /* productInfoDataModel.swift */,
 				18940AEA29B4C4DC0097F698 /* registerDataModel.swift */,
-				1888E66529B7D2FF00B255A5 /* LoggedUserDataModel.swift */,
+				1888E66529B7D2FF00B255A5 /* LoginDataModel.swift */,
 				18940AEC29B4C5D40097F698 /* Encodable + extension.swift */,
 			);
 			path = DataModel;
@@ -766,9 +769,10 @@
 				AF0F700F29AE104800077816 /* AppDelegate.swift in Sources */,
 				AF9EAA5229B60D4200333702 /* CartKeyChain.swift in Sources */,
 				F0E9ADEF29B0182A00A9D208 /* BrandsCollectionViewCell.swift in Sources */,
-				1888E66629B7D30100B255A5 /* LoggedUserDataModel.swift in Sources */,
+				1888E66629B7D30100B255A5 /* LoginDataModel.swift in Sources */,
 				AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */,
 				18940AF029B4C6920097F698 /* Helper.swift in Sources */,
+				180232E129BA2D7C00606514 /* welcomeViewController.swift in Sources */,
 				447832FC29B4FC9C0006E045 /* SearchViewModel.swift in Sources */,
 				F043C26629B0898C00DA7AA5 /* CategoryViewModel.swift in Sources */,
 				44156EAE29B3EDB800FF473B /* productInfoDataModel.swift in Sources */,
