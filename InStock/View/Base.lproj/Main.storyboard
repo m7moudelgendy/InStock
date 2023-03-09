@@ -192,7 +192,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7fx-GF-Pmd">
-                                <rect key="frame" x="0.0" y="178" width="393" height="591"/>
+                                <rect key="frame" x="0.0" y="178" width="393" height="543"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2la-Xg-7Sj">
                                     <size key="itemSize" width="174" height="238"/>
@@ -263,6 +263,29 @@
                                     <outlet property="delegate" destination="Pdi-8b-ZUE" id="xsX-hn-BOa"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-Mm-fWX">
+                                <rect key="frame" x="151" y="109" width="100" height="32"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="UFG-kD-m0C">
+                                <rect key="frame" x="0.0" y="147" width="393" height="32"/>
+                                <segments>
+                                    <segment title="ALL"/>
+                                    <segment title="MEN"/>
+                                    <segment title="WOMEN"/>
+                                    <segment title="KID"/>
+                                </segments>
+                                <connections>
+                                    <action selector="categoryHasChanged:" destination="Pdi-8b-ZUE" eventType="valueChanged" id="5we-dA-0n5"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SpU-dC-XFf" customClass="Floaty" customModule="Floaty">
+                                <rect key="frame" x="348" y="724" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjS-lp-cSR">
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <items>
@@ -285,24 +308,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-Mm-fWX">
-                                <rect key="frame" x="151" y="109" width="91" height="32"/>
-                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UFG-kD-m0C">
-                                <rect key="frame" x="0.0" y="147" width="393" height="32"/>
-                                <segments>
-                                    <segment title="MEN"/>
-                                    <segment title="KID"/>
-                                    <segment title="WOMEN"/>
-                                    <segment title="SALE"/>
-                                </segments>
-                                <connections>
-                                    <action selector="categoryHasChanged:" destination="Pdi-8b-ZUE" eventType="valueChanged" id="5we-dA-0n5"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wgi-Qf-nPo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -313,12 +318,12 @@
                             <constraint firstItem="SHE-Mm-fWX" firstAttribute="top" secondItem="Wgi-Qf-nPo" secondAttribute="top" constant="6" id="Bni-Uv-zQk"/>
                             <constraint firstItem="SHE-Mm-fWX" firstAttribute="leading" secondItem="Wgi-Qf-nPo" secondAttribute="leading" constant="151" id="DZE-bl-nfw"/>
                             <constraint firstItem="UFG-kD-m0C" firstAttribute="top" secondItem="OjS-lp-cSR" secondAttribute="bottom" id="FQh-cG-iqB"/>
-                            <constraint firstItem="Wgi-Qf-nPo" firstAttribute="bottom" secondItem="7fx-GF-Pmd" secondAttribute="bottom" id="PUU-kv-Ukm"/>
+                            <constraint firstItem="Wgi-Qf-nPo" firstAttribute="bottom" secondItem="7fx-GF-Pmd" secondAttribute="bottom" constant="48" id="PUU-kv-Ukm"/>
                             <constraint firstItem="UFG-kD-m0C" firstAttribute="leading" secondItem="Wgi-Qf-nPo" secondAttribute="leading" id="TfM-Tn-wSy"/>
                             <constraint firstItem="7fx-GF-Pmd" firstAttribute="top" secondItem="UFG-kD-m0C" secondAttribute="bottom" id="Xa9-8G-cWo"/>
                             <constraint firstItem="SHE-Mm-fWX" firstAttribute="centerY" secondItem="OjS-lp-cSR" secondAttribute="centerY" id="XbZ-Tk-WrI"/>
                             <constraint firstItem="7fx-GF-Pmd" firstAttribute="leading" secondItem="Wgi-Qf-nPo" secondAttribute="leading" id="gfu-fc-eBX"/>
-                            <constraint firstItem="SHE-Mm-fWX" firstAttribute="centerX" secondItem="OjS-lp-cSR" secondAttribute="centerX" id="iCX-TS-5rg"/>
+                            <constraint firstItem="SHE-Mm-fWX" firstAttribute="centerX" secondItem="OjS-lp-cSR" secondAttribute="centerX" constant="4.5" id="iCX-TS-5rg"/>
                             <constraint firstItem="OjS-lp-cSR" firstAttribute="leading" secondItem="Wgi-Qf-nPo" secondAttribute="leading" id="jWL-X3-JMS"/>
                             <constraint firstItem="OjS-lp-cSR" firstAttribute="top" secondItem="Wgi-Qf-nPo" secondAttribute="top" id="qyy-bL-Q8r"/>
                         </constraints>
@@ -327,6 +332,7 @@
                     <connections>
                         <outlet property="categoryCollectionView" destination="7fx-GF-Pmd" id="JPy-R4-HOf"/>
                         <outlet property="categoryType" destination="UFG-kD-m0C" id="gWp-lC-qJR"/>
+                        <outlet property="floaty" destination="SpU-dC-XFf" id="jnV-yv-Pn4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE9-ba-bSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

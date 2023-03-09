@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-
+import Floaty
 protocol CategoryViewProtocol : AnyObject {
     
     func renderCategoryCollection()
@@ -18,27 +18,31 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
     
     var viewModel : CategoryViewModel!
     
+    @IBOutlet weak var floaty: Floaty!
     
     @IBOutlet weak var categoryType: UISegmentedControl!
     var products = [ProductDetails]()
     var filterCategory : [ProductDetails]?
+    var isFiltering: Bool = false
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        floatyBtn()
         viewModel = CategoryViewModel()
+        
+        
+        let productUrl = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json"
+        
+        viewModel.getBrandProducts(link: productUrl)
+        
         
         viewModel.bindResultToHomeView = {[weak self] in
             DispatchQueue.main.async{
                 self?.renderCategoryCollection()
             }
         }
-        
-        let productUrl = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json"
-        
-        viewModel.getBrandProducts(link: productUrl)
         categoryType.selectedSegmentIndex = 0
-        categoryHasChanged(self)
         
     }
     
@@ -62,6 +66,7 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
         switch categoryType.selectedSegmentIndex {
         case 0:
             // Show all products
+            categoryCollectionView.reloadData()
             filterCategory = viewModel.category
         case 1:
             // Show products tagged with "men"
@@ -97,8 +102,8 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
-        
-        let products = (filterCategory?.isEmpty == false) ? filterCategory! : self.products
+        var products = isFiltering ? filterCategory! : viewModel.category
+        products = (filterCategory?.isEmpty == false) ? filterCategory! : viewModel.category
         guard indexPath.row < products.count else {
             return cell
         }
@@ -128,8 +133,8 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 181, height: 250)
+        let cellWidth = (collectionView.bounds.width - 45) / 2
+        return CGSize(width: cellWidth, height: cellWidth + 90)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 31
@@ -138,6 +143,39 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         return 4
     }
     
-    
+
+    func floatyBtn() {
+        floaty.addItem("ACCESSORIES", icon: UIImage(named: "category")!, handler: { [self] item in
+            filterCategory = getFilteredProducts(productType: "accessories")
+            self.categoryCollectionView.reloadData()
+            floaty.close()
+        })
+        floaty.addItem("T-SHIRTS", icon: UIImage(named: "category")!, handler: { [self] item in
+            filterCategory = getFilteredProducts(productType: "t-shirts")
+            self.categoryCollectionView.reloadData()
+            floaty.close()
+        })
+        floaty.addItem("SHOES", icon: UIImage(named: "category")!, handler: { [self] item in
+            filterCategory = getFilteredProducts(productType: "shoes")
+            self.categoryCollectionView.reloadData()
+            floaty.close()
+        })
+    }
+
+    func getFilteredProducts(productType: String) -> [ProductDetails] {
+        switch categoryType.selectedSegmentIndex {
+        case 0:
+            return viewModel.category.filter { $0.product_type?.lowercased().contains(productType.lowercased()) ?? false }
+        case 1:
+            return viewModel.category.filter { $0.tags?.contains("men") == true && $0.product_type?.lowercased().contains(productType.lowercased()) ?? false }
+        case 2:
+            return viewModel.category.filter { $0.tags?.contains("women") == true && $0.product_type?.lowercased().contains(productType.lowercased()) ?? false }
+        case 3:
+            return viewModel.category.filter { $0.tags?.contains("kid") == true && $0.product_type?.lowercased().contains(productType.lowercased()) ?? false }
+        default:
+            return []
+        }
+    }
+
     
 }
