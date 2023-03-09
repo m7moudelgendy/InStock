@@ -78,14 +78,16 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         return sections[section]
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 51
+        return 51.0
    }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.lightGray
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.black
+        header.textLabel?.textAlignment = .center
         //header.backgroundColor = UIColor.gray
-        header.textLabel?.font = UIFont(name: "Futura", size: 20)!
+        header.textLabel?.font = UIFont(name: "Futura", size: 25)!
+        tableView.sectionHeaderTopPadding = 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +99,15 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         let cell = payMethodsTable.dequeueReusableCell(withIdentifier: "payCell", for: indexPath)
         
         cell.textLabel?.text = arr[indexPath.section][indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Futura", size: 32)
+        cell.textLabel?.font = UIFont(name: "Helvetica Neue", size: 42)
+        cell.layer.borderColor = UIColor.purple.cgColor
+        cell.layer.borderWidth = 3
+        cell.layer.cornerRadius = 15
+        cell.layer.masksToBounds = true
+        cell.layer.shadowOffset = CGSizeMake(6,6)
+        cell.layer.shadowColor = UIColor.white.cgColor
+        cell.layer.shadowOpacity = 0.4
+        cell.layer.shadowRadius = 10
         
         return cell
     }
@@ -106,7 +116,6 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath == [0,0]){
-            print("Hamza")
             payCheck = true
             if payMethodsTable.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark{
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
@@ -119,7 +128,6 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
             }
 
         }else{
-            print("mahmoud")
             payCheck = false
             if payMethodsTable.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark{
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
