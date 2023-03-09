@@ -7,11 +7,11 @@ import CoreData
 class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: ValidationTextField!
     @IBOutlet weak var passwordTextField: ValidationTextField!
+    @IBOutlet weak var signUpView: UIView!
     @IBOutlet weak var lastNameTextField: ValidationTextField!
     @IBOutlet weak var passwordConfirmTextField: ValidationTextField!
     @IBOutlet weak var emailTextField: ValidationTextField!
     @IBOutlet weak var comfirmButton: UIButton!
-    var helperObj = Helper  ()
     var registerViewModelOBJ = RegisterViewModel()
     
     var coreId : Int = 0
@@ -21,10 +21,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       validation()
-        helperObj.addWaveBackground(to: view)
-        let thisImageView = UIImageView(frame: CGRect(x: 5, y: 40, width: 310, height: 270))
-                thisImageView.image = UIImage(named: "8")
-                view.addSubview(thisImageView)
+        signUpView.layer.cornerRadius = 80
+        signUpView.layer.maskedCorners = [.layerMinXMinYCorner]
+     
        
     }
  //   Register Btn
@@ -121,9 +120,7 @@ class RegisterViewController: UIViewController {
 
  
     @IBAction func SignInBtn(_ sender: Any) {
-        let x = CoreDataManager.FetchFromCoreData()
-        print(x.count)
-        
+       
         let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
    
            self.navigationController?.pushViewController(signInVC, animated: true)

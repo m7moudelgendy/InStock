@@ -6,6 +6,7 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var loginView: UIView!
    
+    @IBOutlet weak var loginConfirm: UIButton!
     
     @IBOutlet weak var emailTF: ValidationTextField!
    
@@ -16,8 +17,12 @@ class SignInViewController: UIViewController {
     var email : String?
     var uId : Int?
     func validation (){
-        emailTF.validCondition = {$0.count > 5 && $0.contains("@")}
+        emailTF.validCondition = {$0.count > 5 && $0.contains("@") && $0.contains(".com")}
         passwordTF.validCondition = {$0.count > 8}
+        
+        
+        emailTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
          passwordTF.successImage = UIImage(named: "thumb_up")
         passwordTF.errorImage = UIImage(named: "thumb_down")
@@ -25,6 +30,12 @@ class SignInViewController: UIViewController {
         emailTF.errorImage = UIImage(named: "error")
     }
     var validDic = [ "email":false, "pw":false]
+    
+    var isValid: Bool? {
+        didSet {
+            loginConfirm.isEnabled = isValid ?? false
+            loginConfirm.backgroundColor = isValid ?? false ? #colorLiteral(red: 0.568627451, green: 0.1921568627, blue: 0.4588235294, alpha: 1) : .lightGray
+        }}
 
   
     @objc func textFieldDidChange(_ textfield: UITextField) {
@@ -40,7 +51,8 @@ class SignInViewController: UIViewController {
         default:
             break
         }
-
+        
+        isValid = validDic.reduce(true){ $0 && $1.value}
      }
  
  
@@ -63,7 +75,6 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func SigninBtn(_ sender: Any) {
-        print("brrrrr")
         let loginEmail = emailTF!.text!
         let loginApi = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers/search.json?query=email:" + loginEmail
         
@@ -72,26 +83,17 @@ class SignInViewController: UIViewController {
         
         registerViewModelOBJ.bindResultToRegisterView = {[weak self] in
             DispatchQueue.main.async{
-//                self?.firstName = self!.registerViewModelOBJ.userFirstName!
-//                self?.lastName = self!.registerViewModelOBJ.userLastName!
-//                self?.email = self!.registerViewModelOBJ.userEmail!
-//                self?.uId = self!.registerViewModelOBJ.userID!
-//                print (self!.firstName!)
-//                print (self!.lastName!)
-//                print (self!.email!)
-//                print (self!.uId!)
+                    CoreDataManager.SaveToCoreData(firstName: (self!.registerViewModelOBJ.user.first?.first_name)!,
+                                                   lastName: (self!.registerViewModelOBJ.user.first?.last_name)! ,
+                                                   email: (self!.registerViewModelOBJ.user.first?.email)!,
+                                                   id: (self!.registerViewModelOBJ.user.first?.id)!)
+                    
+                    let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
+                    self?.navigationController?.pushViewController(userVC, animated: true)
                 
-                CoreDataManager.SaveToCoreData(firstName: self!.registerViewModelOBJ.userFirstName!, lastName: self!.registerViewModelOBJ.userLastName! , email: self!.registerViewModelOBJ.userEmail!, id: self!.registerViewModelOBJ.userID!)
-                
-                let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
-                self?.navigationController?.pushViewController(userVC, animated: true)
             }
         }
-//        let logedUser = CoreDataManager.FetchFromCoreData()
-//        if logedUser.count != 0 {
-//            let userVC = self.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
-//            self.navigationController?.pushViewController(userVC, animated: true)
-//        }
+
     }
     
 }
