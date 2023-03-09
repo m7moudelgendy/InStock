@@ -19,6 +19,7 @@ class ProductDetails : Decodable{
     var id : Int?
     var title : String?
     var product_type : String?
+    var tags : String?
     var image : ProductImage
     var variants : [ProductVariants]
 }

@@ -19,6 +19,9 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
     var viewModel : CategoryViewModel!
     
     
+    @IBOutlet weak var categoryType: UISegmentedControl!
+    var products = [ProductDetails]()
+    var filterCategory : [ProductDetails]?
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -34,6 +37,8 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
         let productUrl = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json"
         
         viewModel.getBrandProducts(link: productUrl)
+        categoryType.selectedSegmentIndex = 0
+        categoryHasChanged(self)
         
     }
     
@@ -51,6 +56,30 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
     }
     
     
+    
+    @IBAction func categoryHasChanged(_ sender: Any) {
+        
+        switch categoryType.selectedSegmentIndex {
+        case 0:
+            // Show all products
+            filterCategory = viewModel.category
+        case 1:
+            // Show products tagged with "men"
+            filterCategory = viewModel.category.filter { $0.tags?.contains("men") == true }
+        case 2:
+            // Show products tagged with "women"
+            filterCategory = viewModel.category.filter { $0.tags?.contains("women") == true }
+        case 3:
+            // Show products tagged with "kid"
+            filterCategory = viewModel.category.filter { $0.tags?.contains("kid") == true }
+        default:
+            break
+        }
+        
+        // Reload the collection view with the filtered products
+        self.categoryCollectionView.reloadData()
+    }
+    
 }
 
 
@@ -59,18 +88,29 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
 
 extension CategoryViewController : UICollectionViewDataSource , UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.category.count
+        if let filterCategory = filterCategory {
+            return filterCategory.count
+        } else {
+            return viewModel.category.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
         
-        let url = URL(string: viewModel.category[indexPath.row].image.src!)
+        let products = (filterCategory?.isEmpty == false) ? filterCategory! : self.products
+        guard indexPath.row < products.count else {
+            return cell
+        }
+        let thisProduct = products[indexPath.row]
+        
+        let url = URL(string: thisProduct.image.src!)
         cell.categoryImage.kf.setImage(with: url)
-        cell.productName.text = viewModel.category[indexPath.row].title
-        cell.productType.text = viewModel.category[indexPath.row].product_type
+        cell.productName.text = thisProduct.title
+        cell.productType.text = thisProduct.product_type
         cell.productType.textColor = UIColor.blue
-        cell.categoryPrice.text = viewModel.category[indexPath.row].variants[0].price! + "EGP"
+        cell.categoryPrice.text = thisProduct.variants[0].price! + "EGP"
+        
         cell.layer.borderColor = UIColor.systemGray.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 25
@@ -80,7 +120,6 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         cell.layer.shadowOpacity = 0.4
         cell.layer.shadowRadius = 4
         cell.contentView.layer.masksToBounds = true
-        
         return cell
     }
     

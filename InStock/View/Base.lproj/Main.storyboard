@@ -299,6 +299,9 @@
                                     <segment title="WOMEN"/>
                                     <segment title="SALE"/>
                                 </segments>
+                                <connections>
+                                    <action selector="categoryHasChanged:" destination="Pdi-8b-ZUE" eventType="valueChanged" id="5we-dA-0n5"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wgi-Qf-nPo"/>
@@ -323,6 +326,7 @@
                     <navigationItem key="navigationItem" id="gYa-Iu-oQx"/>
                     <connections>
                         <outlet property="categoryCollectionView" destination="7fx-GF-Pmd" id="JPy-R4-HOf"/>
+                        <outlet property="categoryType" destination="UFG-kD-m0C" id="gWp-lC-qJR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE9-ba-bSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -893,10 +897,10 @@
                                 <rect key="frame" x="13" y="304" width="367" height="366"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="pio-rA-SWD">
-                                        <rect key="frame" x="53" y="-12.333333333333314" width="255" height="294"/>
+                                        <rect key="frame" x="53" y="-12.333333333333314" width="255" height="358.33333333333331"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sTg-68-pN4" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="0.0" width="255" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="47.666666666666664"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -910,7 +914,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2uU-zA-juE" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="65" width="255" height="34"/>
+                                                <rect key="frame" x="0.0" y="78.666666666666629" width="255" height="47.666666666666657"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -924,7 +928,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rs6-JL-MRX" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="130" width="255" height="34"/>
+                                                <rect key="frame" x="0.0" y="157.33333333333331" width="255" height="46.333333333333343"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -938,7 +942,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Z2M-HI-imU" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="195" width="255" height="34"/>
+                                                <rect key="frame" x="0.0" y="234.66666666666671" width="255" height="46.333333333333343"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -952,7 +956,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NYj-PM-bqI" customClass="ValidationTextField" customModule="ValidationTextField">
-                                                <rect key="frame" x="0.0" y="259.99999999999994" width="255" height="34"/>
+                                                <rect key="frame" x="0.0" y="311.99999999999994" width="255" height="46.333333333333314"/>
                                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1100,7 +1104,7 @@
                                 <rect key="frame" x="13" y="280" width="367" height="477"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nxd-y0-uC7" customClass="ValidationTextField" customModule="ValidationTextField">
-                                <rect key="frame" x="57" y="558.66666666666663" width="279" height="34"/>
+                                <rect key="frame" x="57" y="571" width="279" height="46.333333333333371"/>
                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1114,7 +1118,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-ns-O6R" customClass="ValidationTextField" customModule="ValidationTextField">
-                                <rect key="frame" x="57" y="479.66666666666669" width="279" height="34.000000000000057"/>
+                                <rect key="frame" x="57" y="479.66666666666669" width="279" height="46.333333333333314"/>
                                 <color key="tintColor" red="0.54564603850000004" green="0.18118812419999999" blue="0.43895845420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1129,7 +1133,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOz-N3-8ud">
-                                <rect key="frame" x="63" y="637.66666666666663" width="266" height="38.333333333333371"/>
+                                <rect key="frame" x="63" y="662.33333333333337" width="266" height="13.666666666666629"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.19215686269999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="25"/>
                                 <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
@@ -1476,25 +1480,25 @@
     </scenes>
     <designables>
         <designable name="2uU-zA-juE">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="34"/>
+            <size key="intrinsicContentSize" width="255" height="47.607421875"/>
         </designable>
         <designable name="NYj-PM-bqI">
-            <size key="intrinsicContentSize" width="132.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="255" height="46.4140625"/>
         </designable>
         <designable name="Rs6-JL-MRX">
-            <size key="intrinsicContentSize" width="128" height="34"/>
+            <size key="intrinsicContentSize" width="255" height="46.4140625"/>
         </designable>
         <designable name="Yyy-ns-O6R">
-            <size key="intrinsicContentSize" width="132.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="279" height="46.4140625"/>
         </designable>
         <designable name="Z2M-HI-imU">
-            <size key="intrinsicContentSize" width="145.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="255" height="46.4140625"/>
         </designable>
         <designable name="nxd-y0-uC7">
-            <size key="intrinsicContentSize" width="128" height="34"/>
+            <size key="intrinsicContentSize" width="279" height="46.4140625"/>
         </designable>
         <designable name="sTg-68-pN4">
-            <size key="intrinsicContentSize" width="171" height="34"/>
+            <size key="intrinsicContentSize" width="255" height="47.607421875"/>
         </designable>
     </designables>
     <resources>
