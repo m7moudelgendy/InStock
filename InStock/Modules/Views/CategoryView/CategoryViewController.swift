@@ -145,17 +145,17 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
     
 
     func floatyBtn() {
-        floaty.addItem("ACCESSORIES", icon: UIImage(named: "category")!, handler: { [self] item in
+        floaty.addItem( icon: UIImage(named: "bag")!, handler: { [self] item in
             filterCategory = getFilteredProducts(productType: "accessories")
             self.categoryCollectionView.reloadData()
             floaty.close()
         })
-        floaty.addItem("T-SHIRTS", icon: UIImage(named: "category")!, handler: { [self] item in
+        floaty.addItem( icon: UIImage(named: "tshirt")!, handler: { [self] item in
             filterCategory = getFilteredProducts(productType: "t-shirts")
             self.categoryCollectionView.reloadData()
             floaty.close()
         })
-        floaty.addItem("SHOES", icon: UIImage(named: "category")!, handler: { [self] item in
+        floaty.addItem( icon: UIImage(named: "shoes")!, handler: { [self] item in
             filterCategory = getFilteredProducts(productType: "shoes")
             self.categoryCollectionView.reloadData()
             floaty.close()
