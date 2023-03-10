@@ -45,6 +45,9 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             if collectionView == couponCollectionView{
                 UIPasteboard.general.string = viewModel.couponArr[indexPath.row].title
+                let alert = UIAlertController(title: "Coupon", message: "Coupon Copied To Clipboard", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                present(alert, animated: true)
                 print(UIPasteboard.general.string!)
             }else {
                 let brandDetails = self.storyboard?.instantiateViewController(withIdentifier: "BrandDetailsVC") as! BrandDetailsVC
