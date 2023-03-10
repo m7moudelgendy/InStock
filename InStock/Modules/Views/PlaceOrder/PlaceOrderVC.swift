@@ -73,10 +73,14 @@ class PlaceOrderVC: UIViewController {
             grandTotalLB.text = "  Sub Total:  \(grandTotal! + 30 ) EGP"
             break
         default :
+            let alert = UIAlertController(title: "Coupon", message: "Coupon Not Valid", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+
             grandTotal! = subPayments!
             discount = 0
             couponValueLB.text = "\(discount) EGP"
             grandTotalLB.text = "  Sub Total:  \(grandTotal! + 30 ) EGP"
+            present(alert, animated: true)
             break
         }
         
