@@ -48,11 +48,12 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
             controller!.delegate = self
             present(controller!, animated: true, completion: nil)
         }
+        print("Apple Pay")
     }
     func cashPay(){
 //        let imgVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
 //        self.navigationController?.pushViewController(imgVC, animated: true)
-        
+        print("cash")
     }
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         
