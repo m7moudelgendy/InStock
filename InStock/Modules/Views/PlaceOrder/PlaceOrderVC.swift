@@ -104,6 +104,14 @@ extension PlaceOrderVC {
         discountLB.layer.borderWidth = 3.0
         grandTotalLB.layer.borderColor = UIColor.purple.cgColor
         grandTotalLB.layer.borderWidth = 3.0
+        couponTF.layer.borderWidth = 3
+        couponTF.layer.cornerRadius = 15
+        couponTF.layer.masksToBounds = true
+        couponTF.layer.shadowOffset = CGSizeMake(6,6)
+        //couponTF.layer.borderColor = UIColor.purple.cgColor
+        couponTF.layer.shadowColor = UIColor.purple.cgColor
+        couponTF.layer.shadowOpacity = 0.4
+        couponTF.layer.shadowRadius = 10
         
     }
 }

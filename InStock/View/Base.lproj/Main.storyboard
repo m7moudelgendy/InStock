@@ -477,7 +477,6 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R9b-Lq-k4B">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1493,14 +1492,15 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRR-MM-FbU">
-                                <rect key="frame" x="96" y="618" width="201" height="87"/>
+                                <rect key="frame" x="25" y="631" width="342" height="62"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Pay">
+                                        <fragment content="Continue to Payment">
                                             <attributes>
-                                                <font key="NSFont" size="48" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="31" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1515,12 +1515,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pqi-f0-dKQ" firstAttribute="trailing" secondItem="rjY-0c-7DJ" secondAttribute="trailing" id="4wj-KN-vjf"/>
-                            <constraint firstItem="gRR-MM-FbU" firstAttribute="top" secondItem="rjY-0c-7DJ" secondAttribute="bottom" constant="60" id="IY6-aQ-6m0"/>
-                            <constraint firstItem="Pqi-f0-dKQ" firstAttribute="trailing" secondItem="gRR-MM-FbU" secondAttribute="trailing" constant="96" id="SZo-W0-5Zn"/>
-                            <constraint firstItem="Pqi-f0-dKQ" firstAttribute="bottom" secondItem="gRR-MM-FbU" secondAttribute="bottom" constant="113" id="b5m-qu-vAm"/>
+                            <constraint firstItem="gRR-MM-FbU" firstAttribute="top" secondItem="rjY-0c-7DJ" secondAttribute="bottom" constant="73" id="IY6-aQ-6m0"/>
+                            <constraint firstItem="Pqi-f0-dKQ" firstAttribute="trailing" secondItem="gRR-MM-FbU" secondAttribute="trailing" constant="26" id="SZo-W0-5Zn"/>
+                            <constraint firstItem="Pqi-f0-dKQ" firstAttribute="bottom" secondItem="gRR-MM-FbU" secondAttribute="bottom" constant="125" id="b5m-qu-vAm"/>
                             <constraint firstItem="rjY-0c-7DJ" firstAttribute="leading" secondItem="Pqi-f0-dKQ" secondAttribute="leading" id="cHb-2d-doV"/>
                             <constraint firstItem="Pqi-f0-dKQ" firstAttribute="bottom" secondItem="rjY-0c-7DJ" secondAttribute="bottom" constant="260" id="dB3-FQ-9WR"/>
-                            <constraint firstItem="gRR-MM-FbU" firstAttribute="leading" secondItem="Pqi-f0-dKQ" secondAttribute="leading" constant="96" id="mEX-m2-TcV"/>
+                            <constraint firstItem="gRR-MM-FbU" firstAttribute="leading" secondItem="Pqi-f0-dKQ" secondAttribute="leading" constant="25" id="mEX-m2-TcV"/>
                             <constraint firstItem="rjY-0c-7DJ" firstAttribute="top" secondItem="nVK-lj-AuZ" secondAttribute="top" id="ywB-ik-TGL"/>
                         </constraints>
                     </view>
@@ -1531,7 +1531,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOh-Th-S2C" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6798" y="-430"/>
+            <point key="canvasLocation" x="6797.7099236641216" y="-430.28169014084511"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Vl-JU-H5T">

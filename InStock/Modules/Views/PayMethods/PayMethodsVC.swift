@@ -100,7 +100,7 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         let cell = payMethodsTable.dequeueReusableCell(withIdentifier: "payCell", for: indexPath)
         
         cell.textLabel?.text = arr[indexPath.section][indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Helvetica Neue", size: 42)
+        cell.textLabel?.font = UIFont(name: "Helvetica Neue", size: 36)
         cell.layer.borderColor = UIColor.purple.cgColor
         cell.layer.borderWidth = 3
         cell.layer.cornerRadius = 15
