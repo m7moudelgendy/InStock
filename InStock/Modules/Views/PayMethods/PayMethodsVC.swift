@@ -64,13 +64,14 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         
         controller.dismiss(animated: true, completion: nil)
-        let tableVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressTableVC") as! AddressTableVC
-        self.navigationController?.pushViewController(tableVC, animated: true)
+        
                 
     }
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+        let tableVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressTableVC") as! AddressTableVC
+        self.navigationController?.pushViewController(tableVC, animated: true)
     }
 }
 
