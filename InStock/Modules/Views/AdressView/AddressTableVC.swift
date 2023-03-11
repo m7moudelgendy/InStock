@@ -18,15 +18,30 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
         super.viewDidLoad()
         viewModel = AdressViewModel()
         
+       
+//        if (viewModel.result.count == 0){
+//            let alert = UIAlertController(title: "Add Address", message: "Please Address for shipping", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .cancel,handler: {  _ in
+//
+//                let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressVC") as! AddAddressVC
+//                self.navigationController?.pushViewController(addVC, animated: true)
+//            }))
+//            present(alert, animated: true)
+//        }else{
+//            renderTable()
+//        }
+        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
+        viewModel.getAllAddressForCustomer()
         viewModel.bindResultToAdressView = {[weak self] in
             DispatchQueue.main.async{
                 self?.renderTable()
             }
         }
         
-        viewModel.getAllAddressForCustomer()
+        
     }
     func renderTable() {
         self.tableView.reloadData()
@@ -41,15 +56,7 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if (viewModel.result.count == 0){
-            let alert = UIAlertController(title: "Add Address", message: "Please Address for shipping", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel,handler: {  _ in
-            
-                let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressVC") as! AddAddressVC
-                self.navigationController?.pushViewController(addVC, animated: true)
-            }))
-            present(alert, animated: true)
-        }
+        
         return viewModel.result.count
     }
 

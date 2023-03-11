@@ -8,12 +8,14 @@
 import Foundation
 import Alamofire
 
+
 class AddressNetworkManger {
-    
+    static let userArr = CoreDataManager.FetchFromCoreData()
     static func getAllAddresses(completion: @escaping ([Address]?, Error?)-> Void){
-            //guard let customerID = Helper.shared.getUserID() else {return}
+        guard let customerID = userArr.first?.value(forKey: "id")as? Int else {return}
         //let customerID = 6812915204373
-        let customerID = 6813852172565
+        //let customerID = userArr.first?.value(forKey: "id")as! Int
+        print(customerID)
             //guard let url = URLs.shared.customersURl() else {return}
         let url = URL(string: "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers.json")
         AF.request(url!, method: .get,parameters: nil,encoding: JSONEncoding.default,headers: nil).response { res in
@@ -40,7 +42,8 @@ class AddressNetworkManger {
         }
     
     static func addNewAddress(userAddress: AllCoustomerAdress, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let urlPost = URL(string: "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers/6813852172565/addresses.json")
+        guard let customerID = userArr.first?.value(forKey: "id")as? Int else {return}
+        let urlPost = URL(string: "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers/\(customerID)/addresses.json")
         var urlReq = URLRequest(url: urlPost!)
         
         urlReq.httpMethod = "POST"
@@ -65,7 +68,8 @@ class AddressNetworkManger {
         }.resume()
     }
     static func deleteAddress(userAddress: Address, addID : Int, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let urlPost = URL(string: "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers/6813852172565/addresses/\(addID).json")
+        guard let customerID = userArr.first?.value(forKey: "id")as? Int else {return}
+        let urlPost = URL(string: "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/customers/\(customerID)/addresses/\(addID).json")
         var urlReq = URLRequest(url: urlPost!)
         
         urlReq.httpMethod = "DELETE"
