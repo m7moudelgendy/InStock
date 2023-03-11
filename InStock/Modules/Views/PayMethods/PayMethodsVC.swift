@@ -12,7 +12,7 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
     
     @IBOutlet weak var payMethodsTable: UITableView!
     var unchecked = true
-    var payCheck = false
+    var payCheck = 0
     var totalPayments : NSDecimalNumber?
     let sections = ["Online Payment","More Payment Option"]
     var arr = [["Apple Pay"] , ["Cash On Delivery"]]
@@ -32,14 +32,20 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     @IBAction func btnPayClicked(_ sender: Any) {
-        if (payCheck == true) {
+        
+        switch payCheck {
+        case 1 :
             applePay()
-        }else{
+        case 2:
             cashPay()
+        default:
+            let alert = UIAlertController(title: "Choice Payment", message: "Please Select a Payment Method", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alert, animated: true)
+            break
         }
     }
     func applePay(){
@@ -58,16 +64,12 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         
         controller.dismiss(animated: true, completion: nil)
-        
-        
+                
     }
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
-//        let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
-//        self.navigationController?.pushViewController(imageVC, animated: true)
     }
-
 }
 
 extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
@@ -86,7 +88,6 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.black
         header.textLabel?.textAlignment = .center
-        //header.backgroundColor = UIColor.gray
         header.textLabel?.font = UIFont(name: "Futura", size: 25)!
         tableView.sectionHeaderTopPadding = 0
     }
@@ -117,27 +118,25 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath == [0,0]){
-            payCheck = true
+            payCheck = 1
             if payMethodsTable.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark{
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-                payCheck = false
+                payCheck = 0
             }else
             {
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
                 payMethodsTable.cellForRow(at: [1,0])?.accessoryType = UITableViewCell.AccessoryType.none
-                payCheck = true
             }
-
         }else{
-            payCheck = false
+            
+            payCheck = 2
             if payMethodsTable.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark{
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-                payCheck = true
+                payCheck = 0
             }else
             {
                 payMethodsTable.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
                 payMethodsTable.cellForRow(at: [0,0])?.accessoryType = UITableViewCell.AccessoryType.none
-                payCheck = false
             }
         }
     }
