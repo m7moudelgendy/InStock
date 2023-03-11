@@ -12,6 +12,7 @@ class Address: Codable {
     var city : String?
     var country : String?
     var id : Int?
+    var customer_id : Int?
 }
 //Class For Get Data
 class CustomerAddress: Codable {

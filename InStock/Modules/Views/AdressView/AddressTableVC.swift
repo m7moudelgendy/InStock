@@ -15,7 +15,6 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
 
     var viewModel : AdressViewModel!
     override func viewDidLoad() {
-        print("didload")
         super.viewDidLoad()
         viewModel = AdressViewModel()
         
@@ -61,6 +60,13 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        AddressNetworkManger.deleteAddress(userAddress: viewModel.result[indexPath.row], addID: viewModel.result[indexPath.row].id!) { _, _, _ in
+        }
+        viewModel.result.remove(at: indexPath.row)
+        renderTable()
+        
     }
 
 
