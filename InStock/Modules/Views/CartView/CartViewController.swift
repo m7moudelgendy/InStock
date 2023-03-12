@@ -11,6 +11,7 @@ import Kingfisher
 class CartViewController: UIViewController {
 
     var cart = CartModel()
+    let userArr = CoreDataManager.FetchFromCoreData()
     var quantity = 1
     var totalPrice = 0.0
     @IBOutlet weak var cartTable: UITableView!
@@ -64,11 +65,17 @@ class CartViewController: UIViewController {
     
     @IBAction func btnProceedClicked(_ sender: Any) {
         
-        let placeVC = self.storyboard?.instantiateViewController(withIdentifier: "PlaceOrderVC") as! PlaceOrderVC
-        placeVC.subPayments = totalPrice
+        let customerID = userArr.first?.value(forKey: "id")as? Int
         
-        self.navigationController?.pushViewController(placeVC, animated: true)
-        
+        if(customerID == nil){
+            print("ay 7agaaaaaaaaa")
+        }else{
+            
+            let placeVC = self.storyboard?.instantiateViewController(withIdentifier: "PlaceOrderVC") as! PlaceOrderVC
+            placeVC.subPayments = totalPrice
+            
+            self.navigationController?.pushViewController(placeVC, animated: true)
+        }
     }
 }
 extension CartViewController : UITableViewDelegate , UITableViewDataSource {

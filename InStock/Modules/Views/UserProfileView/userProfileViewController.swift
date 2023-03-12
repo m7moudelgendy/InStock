@@ -28,7 +28,7 @@ class userProfileViewController: UIViewController {
         for _ in 0...fetchArr.count {
             CoreDataManager.DeleteFromCoreData()
         }
-        
+        CartRepo().local.delete(key: .Cart)
         let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "welcomeViewController") as! welcomeViewController
    
            self.navigationController?.pushViewController(welcomeVC, animated: true)
