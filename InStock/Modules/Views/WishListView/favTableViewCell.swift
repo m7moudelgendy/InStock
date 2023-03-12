@@ -2,13 +2,16 @@
 //  favTableViewCell.swift
 //  InStock
 //
-//  Created by Hader on 12/3/23.
+//  Created by Hader on 10/3/23.
 //
 
 import UIKit
 
 class favTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var proPrice: UILabel!
+    @IBOutlet weak var proName: UILabel!
+    @IBOutlet weak var proImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
