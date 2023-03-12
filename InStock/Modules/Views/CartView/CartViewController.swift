@@ -68,7 +68,13 @@ class CartViewController: UIViewController {
         let customerID = userArr.first?.value(forKey: "id")as? Int
         
         if(customerID == nil){
-            print("ay 7agaaaaaaaaa")
+            let alert = UIAlertController(title: "Requierd Sign In", message: "You have to Sign In", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler: { _ in
+                let sign = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+                self.navigationController?.pushViewController(sign, animated: true)
+            }))
+            present(alert, animated: true)
         }else{
             
             let placeVC = self.storyboard?.instantiateViewController(withIdentifier: "PlaceOrderVC") as! PlaceOrderVC
