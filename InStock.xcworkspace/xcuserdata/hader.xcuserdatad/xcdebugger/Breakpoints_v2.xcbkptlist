@@ -46,8 +46,8 @@
             filePath = "InStock/Modules/ViewModels/RegisterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "getLogedUser(userLink:)"
             landmarkType = "7">
          </BreakpointContent>

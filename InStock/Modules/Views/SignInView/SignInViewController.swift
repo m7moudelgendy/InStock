@@ -82,18 +82,28 @@ class SignInViewController: UIViewController {
         
         
         registerViewModelOBJ.bindResultToRegisterView = {[weak self] in
-            DispatchQueue.main.async{
-                    CoreDataManager.SaveToCoreData(firstName: (self!.registerViewModelOBJ.user.first?.first_name)!,
-                                                   lastName: (self!.registerViewModelOBJ.user.first?.last_name)! ,
-                                                   email: (self!.registerViewModelOBJ.user.first?.email)!,
-                                                   id: (self!.registerViewModelOBJ.user.first?.id)!)
-                    
-                    let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
-                    self?.navigationController?.pushViewController(userVC, animated: true)
+            DispatchQueue.main.async{ if self!.registerViewModelOBJ.user.count != 0 {
+                CoreDataManager.SaveToCoreData(firstName: (self!.registerViewModelOBJ.user.first?.first_name)!,
+                                               lastName: (self!.registerViewModelOBJ.user.first?.last_name)! ,
+                                               email: (self!.registerViewModelOBJ.user.first?.email)!,
+                                               id: (self!.registerViewModelOBJ.user.first?.id)!)
+                
+                let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
+                self?.navigationController?.pushViewController(userVC, animated: true)
+                
+            } else {
+                let alert = UIAlertController(title:"Incorrect email", message: "Please enter valid email", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] UIAlertAction in
+                    self!.dismiss(animated: true)
+                }))
+                
+                self?.present(alert, animated: true, completion: nil)
+            }
                 
             }
+            
         }
-
     }
     
 }

@@ -17,29 +17,7 @@ class RegisterViewModel {
         }
     }
     
-//    var userFirstName : String! {
-//        didSet{
-//            bindResultToRegisterView()
-//        }
-//    }
-//
-//    var userLastName : String! {
-//        didSet{
-//            bindResultToRegisterView()
-//        }
-//    }
-//
-//    var userEmail : String! {
-//        didSet{
-//            bindResultToRegisterView()
-//        }
-//    }
-//
-//    var userID : Int! {
-//        didSet{
-//            bindResultToRegisterView()
-//        }
-//    }
+
     
     func addNewCustomer (addCustomer : newCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
         NetworkManger.registerUser(registerCustomer: addCustomer) { data , response, error in
@@ -51,7 +29,7 @@ class RegisterViewModel {
     func getLogedUser (userLink : String) {
         NetworkManger.fetchData(apiLink: userLink) { [weak self] (data : LoggedCustomer?) in
             if data != nil {
-                self?.user = data!.customers
+                self?.user = data!.customers!
                 
             } else {
                 print ("inavlid Email")

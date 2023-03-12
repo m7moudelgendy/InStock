@@ -13,7 +13,8 @@ import Foundation
 
 
 class LoggedCustomer : Decodable {
-    var customers : [loggedCustomerData]
+    var customers :[loggedCustomerData]?
+    
 }
 
 class loggedCustomerData : Decodable {
