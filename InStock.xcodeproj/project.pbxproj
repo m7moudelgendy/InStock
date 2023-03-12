@@ -47,6 +47,8 @@
 		AF1F028729BC11D200D15819 /* AddAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1F028629BC11D200D15819 /* AddAddressVC.swift */; };
 		AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */; };
 		AF643FF529BE006B0098B5FF /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF643FF429BE006B0098B5FF /* SettingViewCell.swift */; };
+		AF643FF829BE154A0098B5FF /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF643FF729BE154A0098B5FF /* AboutUsVC.swift */; };
+		AF643FFB29BE18570098B5FF /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF643FFA29BE18570098B5FF /* ContactUsVC.swift */; };
 		AF9EAA3E29B6001900333702 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA3D29B6001900333702 /* CartViewController.swift */; };
 		AF9EAA4029B6031400333702 /* CartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA3F29B6031400333702 /* CartViewCell.swift */; };
 		AF9EAA4329B6061100333702 /* CartProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA4229B6061100333702 /* CartProductModel.swift */; };
@@ -140,6 +142,8 @@
 		AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsVC.swift; sourceTree = "<group>"; };
 		AF229CFD29B8D2170050D8BE /* InStock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InStock.entitlements; sourceTree = "<group>"; };
 		AF643FF429BE006B0098B5FF /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
+		AF643FF729BE154A0098B5FF /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		AF643FFA29BE18570098B5FF /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		AF9EAA3D29B6001900333702 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		AF9EAA3F29B6031400333702 /* CartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCell.swift; sourceTree = "<group>"; };
 		AF9EAA4229B6061100333702 /* CartProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductModel.swift; sourceTree = "<group>"; };
@@ -361,6 +365,15 @@
 			path = PayMethods;
 			sourceTree = "<group>";
 		};
+		AF643FF629BE14FC0098B5FF /* AboutContactView */ = {
+			isa = PBXGroup;
+			children = (
+				AF643FF729BE154A0098B5FF /* AboutUsVC.swift */,
+				AF643FFA29BE18570098B5FF /* ContactUsVC.swift */,
+			);
+			path = AboutContactView;
+			sourceTree = "<group>";
+		};
 		AF9EAA3C29B5FFFA00333702 /* CartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +519,7 @@
 		F0E9ADEA29B00D5300A9D208 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF643FF629BE14FC0098B5FF /* AboutContactView */,
 				F006F7B229BDFF9D00D0E864 /* OrderView */,
 				F052EC8829BD616E00D0623B /* SettingsView */,
 				AF1F028329BC0F7D00D15819 /* AddAddressView */,
@@ -822,6 +836,7 @@
 				AF643FF529BE006B0098B5FF /* SettingViewCell.swift in Sources */,
 				F0E9ADF429B0292F00A9D208 /* DataModel.swift in Sources */,
 				447832FA29B4F9B70006E045 /* ProductCollectionViewCell.swift in Sources */,
+				AF643FFB29BE18570098B5FF /* ContactUsVC.swift in Sources */,
 				AF9EAA4D29B60C4000333702 /* CartRepo.swift in Sources */,
 				1888E66429B7898600B255A5 /* userProfileViewController.swift in Sources */,
 				18B27C8629B6D22600D5A4F5 /* RegisterViewModel.swift in Sources */,
@@ -840,6 +855,7 @@
 				18940AED29B4C5D40097F698 /* Encodable + extension.swift in Sources */,
 				F0E9ADF929B0499B00A9D208 /* HomeViewExtension.swift in Sources */,
 				AFD9F61129BAB85B00F51A03 /* PlaceOrderVC.swift in Sources */,
+				AF643FF829BE154A0098B5FF /* AboutUsVC.swift in Sources */,
 				F0E9ADF729B02D5200A9D208 /* HomeViewModel.swift in Sources */,
 				AF9EAA4529B6068E00333702 /* CartModel.swift in Sources */,
 				18940AE929B4B97D0097F698 /* URLs.swift in Sources */,

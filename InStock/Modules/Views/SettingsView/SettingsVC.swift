@@ -21,8 +21,8 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = HomeViewModel()
+        settingTableView.isScrollEnabled = false
         
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,33 +58,29 @@ extension SettingsVC : UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
+        return 20
     }
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = UIColor.clear
-//        return headerView
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        cell.textLabel?.text = self.setting![indexPath.section]
-//
-//        cell.backgroundColor = UIColor.white
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 1
-//        cell.layer.cornerRadius = 8
-//        cell.clipsToBounds = true
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        print("You tapped cell number \(indexPath.section).")
-//    }
-//
-//
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            let tableVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressTableVC") as! AddressTableVC
+            self.navigationController?.pushViewController(tableVC, animated: true)
+        
+        case 2:
+            let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "ContactUsVC") as! ContactUsVC
+            self.navigationController?.pushViewController(contactVC, animated: true)
+        case 3:
+            let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+            self.navigationController?.pushViewController(aboutVC, animated: true)
+        default :
+            break
+            
+        }
+        
+    }
+    
+    
 }
 
 
