@@ -14,9 +14,11 @@ protocol TableViewProtocol : AnyObject {
 class AddressTableVC: UITableViewController,TableViewProtocol {
 
     var viewModel : AdressViewModel!
+    var cart : CartModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = AdressViewModel()
+        cart = CartModel()
      
     }
     
@@ -75,4 +77,32 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
             renderTable()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if CartRepo().local.isExist() {
+            cart = CartRepo().local.get()!
+        }
+        let order = LineItem()
+        order.title = cart.products.first?.title
+        //order.price = Double(cart.products.first?.price ?? "")
+        order.price = 222.22
+        let newOrder = Orders()
+        newOrder.line_items = [order]
+        let allOrder = AllOrders()
+        allOrder.order = newOrder
+        OrederNetworkManger.addNewOrder(userOrder: allOrder) { _, _, _ in   }
+        
+        
+        let alert = UIAlertController(title: "Congratulations", message: "Your Order has Submitted", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler: { _ in
+            let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            self.navigationController?.pushViewController(home, animated: true)
+        }))
+        present(alert, animated: true)
+        
+    }
+    
+    
 }
+

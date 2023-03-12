@@ -55,6 +55,8 @@
 		AF9EAA5229B60D4200333702 /* CartKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA5129B60D4200333702 /* CartKeyChain.swift */; };
 		AFD9F61129BAB85B00F51A03 /* PlaceOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD9F61029BAB85A00F51A03 /* PlaceOrderVC.swift */; };
 		E36B672C30D5CC9CE12246C6 /* Pods_InStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E2FBFA0D4485434CB13F6A /* Pods_InStock.framework */; };
+		F006F7AF29BDE1B100D0E864 /* OrderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006F7AE29BDE1B100D0E864 /* OrderDataModel.swift */; };
+		F006F7B129BDE1F100D0E864 /* OrderNetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006F7B029BDE1F100D0E864 /* OrderNetworkManger.swift */; };
 		F032D7B129B14657001284D4 /* BrandDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032D7B029B14657001284D4 /* BrandDetailsVC.swift */; };
 		F032D7B329B14EFF001284D4 /* BrandDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032D7B229B14EFF001284D4 /* BrandDetailsCell.swift */; };
 		F043C26229B07EE200DA7AA5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043C26129B07EE200DA7AA5 /* CategoryCollectionViewCell.swift */; };
@@ -144,6 +146,8 @@
 		AF9EAA5129B60D4200333702 /* CartKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartKeyChain.swift; sourceTree = "<group>"; };
 		AFD9F61029BAB85A00F51A03 /* PlaceOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderVC.swift; sourceTree = "<group>"; };
 		B52DAE28F916ADB0B169A659 /* Pods_InStockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InStockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F006F7AE29BDE1B100D0E864 /* OrderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataModel.swift; sourceTree = "<group>"; };
+		F006F7B029BDE1F100D0E864 /* OrderNetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNetworkManger.swift; sourceTree = "<group>"; };
 		F032D7B029B14657001284D4 /* BrandDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailsVC.swift; sourceTree = "<group>"; };
 		F032D7B229B14EFF001284D4 /* BrandDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailsCell.swift; sourceTree = "<group>"; };
 		F043C26129B07EE200DA7AA5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 			children = (
 				F0E9ADF129B0288300A9D208 /* NetworkManger.swift */,
 				AF06D3CD29BC00900096F0E8 /* AddressNetworkManger.swift */,
+				F006F7B029BDE1F100D0E864 /* OrderNetworkManger.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -547,6 +552,7 @@
 				1888E66529B7D2FF00B255A5 /* LoginDataModel.swift */,
 				18940AEC29B4C5D40097F698 /* Encodable + extension.swift */,
 				AF06D3C929BBFF0D0096F0E8 /* AddressDataModel.swift */,
+				F006F7AE29BDE1B100D0E864 /* OrderDataModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */,
 				18940AF029B4C6920097F698 /* Helper.swift in Sources */,
 				180232E129BA2D7C00606514 /* welcomeViewController.swift in Sources */,
+				F006F7B129BDE1F100D0E864 /* OrderNetworkManger.swift in Sources */,
 				447832FC29B4FC9C0006E045 /* SearchViewModel.swift in Sources */,
 				F043C26629B0898C00DA7AA5 /* CategoryViewModel.swift in Sources */,
 				44156EAE29B3EDB800FF473B /* productInfoDataModel.swift in Sources */,
@@ -846,6 +853,7 @@
 				AF9EAA5029B60C9A00333702 /* KeyChain.swift in Sources */,
 				AF0F701129AE104800077816 /* SceneDelegate.swift in Sources */,
 				AF06D3C829BBFE050096F0E8 /* AddressTableVC.swift in Sources */,
+				F006F7AF29BDE1B100D0E864 /* OrderDataModel.swift in Sources */,
 				AF0F701929AE104800077816 /* InStock.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
