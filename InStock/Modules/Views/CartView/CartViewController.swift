@@ -109,7 +109,4 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         subTotal.text = "  Sub Total:  \(totalPrice) EGP"
         cartTable.reloadData()
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print ("ay 7aga")
-    }
 }

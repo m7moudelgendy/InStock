@@ -46,6 +46,7 @@
 		AF1CD7D729AFCCA200DA4EE9 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1CD7D629AFCCA200DA4EE9 /* CouponCollectionViewCell.swift */; };
 		AF1F028729BC11D200D15819 /* AddAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1F028629BC11D200D15819 /* AddAddressVC.swift */; };
 		AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */; };
+		AF643FF529BE006B0098B5FF /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF643FF429BE006B0098B5FF /* SettingViewCell.swift */; };
 		AF9EAA3E29B6001900333702 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA3D29B6001900333702 /* CartViewController.swift */; };
 		AF9EAA4029B6031400333702 /* CartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA3F29B6031400333702 /* CartViewCell.swift */; };
 		AF9EAA4329B6061100333702 /* CartProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9EAA4229B6061100333702 /* CartProductModel.swift */; };
@@ -138,6 +139,7 @@
 		AF1F028629BC11D200D15819 /* AddAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressVC.swift; sourceTree = "<group>"; };
 		AF229CFB29B8D11C0050D8BE /* PayMethodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsVC.swift; sourceTree = "<group>"; };
 		AF229CFD29B8D2170050D8BE /* InStock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InStock.entitlements; sourceTree = "<group>"; };
+		AF643FF429BE006B0098B5FF /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		AF9EAA3D29B6001900333702 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		AF9EAA3F29B6031400333702 /* CartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCell.swift; sourceTree = "<group>"; };
 		AF9EAA4229B6061100333702 /* CartProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductModel.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				F052EC8929BD61A800D0623B /* SettingsVC.swift */,
+				AF643FF429BE006B0098B5FF /* SettingViewCell.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44156EAA29B3ED2C00FF473B /* productImgCollectionViewCell.swift in Sources */,
+				AF643FF529BE006B0098B5FF /* SettingViewCell.swift in Sources */,
 				F0E9ADF429B0292F00A9D208 /* DataModel.swift in Sources */,
 				447832FA29B4F9B70006E045 /* ProductCollectionViewCell.swift in Sources */,
 				AF9EAA4D29B60C4000333702 /* CartRepo.swift in Sources */,
