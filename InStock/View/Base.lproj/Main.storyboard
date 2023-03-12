@@ -91,6 +91,9 @@
                                     <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="6SE-DM-DK3"/>
                                     <barButtonItem image="heart" catalog="system" id="2Ct-te-K8a">
                                         <color key="tintColor" red="0.12549019610000001" green="0.14901960780000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="favBTN:" destination="BYZ-38-t0r" id="ZAW-9e-OXM"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>

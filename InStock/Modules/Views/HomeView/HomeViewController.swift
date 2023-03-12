@@ -54,5 +54,10 @@ class HomeViewController: UIViewController , HomeViewProtocol {
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     
+    @IBAction func favBTN(_ sender: Any) {
+        let favVC = self.storyboard?.instantiateViewController(withIdentifier: "favProductViewController") as! favProductViewController
+
+           self.navigationController?.pushViewController(favVC, animated: true)
+    }
 }
 
