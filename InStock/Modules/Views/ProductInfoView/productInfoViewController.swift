@@ -16,6 +16,7 @@ protocol ProductInfoViewProtocol : AnyObject {
 class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     
     
+    @IBOutlet weak var favBTN: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productType: UILabel!
     @IBOutlet weak var productTitle: UILabel!
@@ -31,9 +32,9 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     var proName : String?
     var proPrice : String?
     var proQuantity = 1
-    
+    var infoFlag : Int?
     var viewModelOBJ : ProductInfoViewModel = ProductInfoViewModel()
-    
+    let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -44,10 +45,17 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         if CartRepo().local.isExist() {
             cart = CartRepo().local.get()!
         }
+        switch infoFlag {
+        case 1:
+            let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json"
+            viewModelOBJ.getProductInfo(UrlLink: productInfoURL)
+        case 2:
+            let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json?collection_id=\(collectionID)"
+            viewModelOBJ.getProductInfo(UrlLink: productInfoURL)
+        default:
+            break
+        }
         
-        let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json?collection_id=\(collectionID)"
- 
-        viewModelOBJ.getProductInfo(UrlLink: productInfoURL)
         viewModelOBJ.bindResultToProductView = {[weak self] in
             DispatchQueue.main.async{
                 self?.renderProductInfoCollection()
@@ -55,8 +63,23 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
                 self?.productTitle.text = self?.viewModelOBJ.productTitle
                 self?.productType.text = self?.viewModelOBJ.productType
                 self?.productDescrip.text  = self?.viewModelOBJ.productDescription
-                self?.productPrice.text = (self?.viewModelOBJ.productPrice[0].price)! + "EGP"
+                self?.productPrice.text = (self?.viewModelOBJ.productPrice)! + "EGP"
                 
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        for index in 0 ..< (favProductArr.count) {
+            let favProName = favProductArr[index].value(forKey: "proName") as? String
+            if proName == favProName {
+                favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                favBTN.reloadInputViews()
+                break
+            }
+            
+            else {
+                favBTN.setImage(UIImage(systemName: "heart"), for: .normal)
             }
         }
     }
@@ -86,7 +109,9 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         
     }
     
-    @IBAction func favouriteBT(_ sender: Any) {
+    @IBAction func favouriteBT(_ sender: UIButton) {
+        ProductCoreDataManager.SaveProToCoreData(proName: proName!, proPrice: proPrice!, proLink: proImageUrl!)
+        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
 }
 

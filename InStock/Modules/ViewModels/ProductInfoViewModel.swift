@@ -20,7 +20,7 @@ class ProductInfoViewModel {
         }
     }
     
-    var productPrice : [Price] = [] {
+    var productPrice : String!  {
         didSet{
             bindResultToProductView()
         }
@@ -54,7 +54,7 @@ class ProductInfoViewModel {
         NetworkManger.fetchData(apiLink: UrlLink) { [weak self] (data: ProductModel?) in
             print(UrlLink)
             self?.productImg = data?.product.images ?? []
-            self?.productPrice = data?.product.variants ?? []
+            self?.productPrice = data?.product.variants.first?.price ?? ""
             self?.productTitle = data?.product.title ?? ""
             self?.productBrand = data?.product.vendor ?? ""
             self?.productDescription = data?.product.body_html ?? ""

@@ -596,8 +596,8 @@
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" red="0.56862745100000001" green="0.19215686269999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="favouriteBT:" destination="DDD-Vo-svO" eventType="touchUpInside" id="R0Y-uE-vAa"/>
@@ -682,6 +682,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="jqi-iF-94F" id="kai-8i-Oi3"/>
+                        <outlet property="favBTN" destination="Jes-LK-eRR" id="6Rq-74-2UW"/>
                         <outlet property="pageControl" destination="cnS-Am-vsW" id="XYS-dI-bwt"/>
                         <outlet property="productDescrip" destination="NTc-S3-mse" id="StI-Np-suq"/>
                         <outlet property="productPrice" destination="hZj-KN-VRE" id="vKq-f2-lu0"/>
@@ -2346,7 +2347,6 @@
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="category" width="24" height="24"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="lock" catalog="system" width="125" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
