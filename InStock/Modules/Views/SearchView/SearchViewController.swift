@@ -21,14 +21,13 @@ class SearchViewController: UIViewController ,ProductsViewProtocol
     var searchviewModel : SearchViewModel!
     var searching = false
     let searchController = UISearchController(searchResultsController: nil)
-
+    let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         productsCollectionView.delegate = self
         productsCollectionView.dataSource = self
         //search  bar
-      //searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         configureSearchController ()
         searchviewModel = SearchViewModel()
@@ -43,14 +42,6 @@ class SearchViewController: UIViewController ,ProductsViewProtocol
         }
         
      
-//        searchviewModel.bindSearchResultToSearchView = {[weak self] in
-//
-//            DispatchQueue.main.async{
-//                self?.searchviewModel.searchProduct  = self?.searchviewModel.products ?? []
-//                self?.renderProductsCollection()
-//
-//            }
-//        }
     }
     func configureSearchController ()
     {
@@ -92,6 +83,21 @@ extension SearchViewController : UICollectionViewDataSource , UICollectionViewDe
             cell.productName.text = searchviewModel.searchProduct[indexPath.row].title
             cell.productType.text = searchviewModel.searchProduct[indexPath.row].product_type
             cell.productPrice.text = searchviewModel.products[indexPath.row].variants[0].price! + "EGP"
+            
+            var productName = searchviewModel.searchProduct[indexPath.row].title
+            for index in 0 ..< (favProductArr.count) {
+                let favProName = favProductArr[index].value(forKey: "proName") as? String
+                if productName == favProName {
+                    cell.favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    cell.favBTN.reloadInputViews()
+                    break
+                }
+                
+                else {
+                    cell.favBTN.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+                
+            }
            
         }
         else
@@ -101,6 +107,21 @@ extension SearchViewController : UICollectionViewDataSource , UICollectionViewDe
             cell.productName.text = searchviewModel.products[indexPath.row].title
             cell.productType.text = searchviewModel.products[indexPath.row].product_type
             cell.productPrice.text = searchviewModel.products[indexPath.row].variants[0].price! + "EGP"
+            
+            var productName = searchviewModel.products[indexPath.row].title
+            for index in 0 ..< (favProductArr.count) {
+                let favProName = favProductArr[index].value(forKey: "proName") as? String
+                if productName == favProName {
+                    cell.favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    cell.favBTN.reloadInputViews()
+                    break
+                }
+                
+                else {
+                    cell.favBTN.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+                
+            }
         }
         cell.productType.textColor = UIColor.darkGray
         cell.layer.borderColor = UIColor.white.cgColor
@@ -161,6 +182,7 @@ extension SearchViewController : UICollectionViewDataSource , UICollectionViewDe
         renderProductsCollection()
     }
 }
+
 
 
 

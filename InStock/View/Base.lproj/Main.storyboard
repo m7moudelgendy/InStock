@@ -747,7 +747,9 @@
                                                     <rect key="frame" x="120.33333333333333" y="8" width="50.666666666666671" height="21"/>
                                                     <color key="tintColor" systemColor="systemRedColor"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                                        <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                                    </buttonConfiguration>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCo-9B-VCW">
                                                     <rect key="frame" x="102" y="149" width="61" height="22"/>
@@ -773,13 +775,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="wwt-Vc-L1f" secondAttribute="trailing" constant="21" id="kqe-x6-7li"/>
                                                 <constraint firstItem="Xnv-4q-pbu" firstAttribute="leading" secondItem="89R-wH-izV" secondAttribute="leading" constant="8" id="scu-Zp-TAi"/>
                                                 <constraint firstItem="MWl-ED-RNU" firstAttribute="leading" secondItem="89R-wH-izV" secondAttribute="leading" constant="38" id="uKX-KI-Qf8"/>
-                                                <constraint firstItem="oxE-l4-f88" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="89R-wH-izV" secondAttribute="leading" symbolic="YES" id="wQd-er-nay"/>
+                                                <constraint firstItem="oxE-l4-f88" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="89R-wH-izV" secondAttribute="leading" constant="20" symbolic="YES" id="wQd-er-nay"/>
                                                 <constraint firstItem="MWl-ED-RNU" firstAttribute="top" secondItem="89R-wH-izV" secondAttribute="top" constant="21" id="xcv-VG-1wZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="oxE-l4-f88" secondAttribute="bottom" constant="152" id="y2r-Xl-GO9"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="171" height="181"/>
                                         <connections>
+                                            <outlet property="favBTN" destination="oxE-l4-f88" id="OPz-iB-fIp"/>
                                             <outlet property="productImage" destination="MWl-ED-RNU" id="TMY-B6-QNe"/>
                                             <outlet property="productName" destination="wwt-Vc-L1f" id="TDM-nd-Ioe"/>
                                             <outlet property="productPrice" destination="cCo-9B-VCW" id="AIg-sk-E1c"/>
@@ -2373,6 +2376,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

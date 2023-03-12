@@ -9,6 +9,7 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var favBTN: UIButton!
     @IBOutlet weak var productImage: UIImageView!
     
     @IBOutlet weak var productName: UILabel!
