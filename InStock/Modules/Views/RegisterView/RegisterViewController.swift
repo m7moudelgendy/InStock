@@ -14,10 +14,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var comfirmButton: UIButton!
     var registerViewModelOBJ = RegisterViewModel()
     
-    var coreId : Int = 0
-    var coreEmail : String = ""
-    var coreFirstName : String = ""
-    var coreLastName : String = ""
+    var containDataFlag : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
       validation()
@@ -40,16 +37,15 @@ class RegisterViewController: UIViewController {
         customerOBJ.email = email
          //add user to server
         addedCustomer.customer = customerOBJ
+        
         registerViewModelOBJ.addNewCustomer(addCustomer: addedCustomer) { data, response, error in
         }
         print("user added to server successfully ")
         
         let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
-   
-           self.navigationController?.pushViewController(signInVC, animated: true)
        
-        
-        
+        self.navigationController?.pushViewController(signInVC, animated: true)
+     
     }
     func validation (){
         nameTextField.validCondition = {$0.count > 3}

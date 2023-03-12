@@ -16,11 +16,14 @@ class CartViewController: UIViewController {
     var totalPrice = 0.0
     @IBOutlet weak var cartTable: UITableView!
     
+    @IBOutlet weak var cartView: UIView!
     @IBOutlet weak var subTotal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        cartView.clipsToBounds = true
+        cartView.layer.cornerRadius = 20
+        cartView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         if CartRepo().local.isExist() {
             cart = CartRepo().local.get()!
         }
@@ -28,9 +31,7 @@ class CartViewController: UIViewController {
             for item in cart.products {
                 totalPrice += (item.price as NSString).doubleValue
             }
-            subTotal.layer.borderColor = UIColor.darkGray.cgColor
-            subTotal.layer.borderWidth = 3.0
-            subTotal.text = "  Sub Total:  \(totalPrice) EGP"
+            subTotal.text = " \(totalPrice) EGP"
             cartTable.reloadData()
         }
         
@@ -43,7 +44,7 @@ class CartViewController: UIViewController {
             let product = cart.products[indexPath.row]
             product.quantity += 1
             totalPrice += (product.price as NSString).doubleValue
-            subTotal.text = "  Sub Total:  \(totalPrice) EGP"
+            subTotal.text = " \(totalPrice) EGP"
             self.cartTable.reloadRows(at: [indexPath], with: .none)
         }
     }
@@ -56,7 +57,7 @@ class CartViewController: UIViewController {
             if product.quantity > 1 {
                 product.quantity -= 1
                 totalPrice -= (product.price as NSString).doubleValue
-                subTotal.text = "  Sub Total:  \(totalPrice) EGP"
+                subTotal.text = " \(totalPrice) EGP"
                 self.cartTable.reloadRows(at: [indexPath], with: .none)
             }
         }

@@ -13,7 +13,6 @@
 		18940AE929B4B97D0097F698 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AE829B4B97D0097F698 /* URLs.swift */; };
 		18940AEB29B4C4DC0097F698 /* registerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEA29B4C4DC0097F698 /* registerDataModel.swift */; };
 		18940AED29B4C5D40097F698 /* Encodable + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEC29B4C5D40097F698 /* Encodable + extension.swift */; };
-		18940AF029B4C6920097F698 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18940AEF29B4C6920097F698 /* Helper.swift */; };
 		18A876A129B5259700918DD5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 18A876A029B5259700918DD5 /* Alamofire */; };
 		18B27C8629B6D22600D5A4F5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B27C8529B6D22500D5A4F5 /* RegisterViewModel.swift */; };
 		18B27C8929B6E50700D5A4F5 /* coreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B27C8829B6E50600D5A4F5 /* coreDataFunctions.swift */; };
@@ -104,7 +103,6 @@
 		18940AE829B4B97D0097F698 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		18940AEA29B4C4DC0097F698 /* registerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerDataModel.swift; sourceTree = "<group>"; };
 		18940AEC29B4C5D40097F698 /* Encodable + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + extension.swift"; sourceTree = "<group>"; };
-		18940AEF29B4C6920097F698 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		18B27C8529B6D22500D5A4F5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		18B27C8829B6E50600D5A4F5 /* coreDataFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataFunctions.swift; sourceTree = "<group>"; };
 		18C3FED229BE31230068C089 /* favProductCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favProductCoreData.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 		18940AEE29B4C6710097F698 /* RegisterView */ = {
 			isa = PBXGroup;
 			children = (
-				18940AEF29B4C6920097F698 /* Helper.swift */,
 				447832F129B4F27E0006E045 /* RegisterViewController.swift */,
 			);
 			path = RegisterView;
@@ -886,7 +883,6 @@
 				1888E66629B7D30100B255A5 /* LoginDataModel.swift in Sources */,
 				F006F7B429BE021100D0E864 /* OrderTableVC.swift in Sources */,
 				AF229CFC29B8D11C0050D8BE /* PayMethodsVC.swift in Sources */,
-				18940AF029B4C6920097F698 /* Helper.swift in Sources */,
 				180232E129BA2D7C00606514 /* welcomeViewController.swift in Sources */,
 				F006F7B129BDE1F100D0E864 /* OrderNetworkManger.swift in Sources */,
 				447832FC29B4FC9C0006E045 /* SearchViewModel.swift in Sources */,

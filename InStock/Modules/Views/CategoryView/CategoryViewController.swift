@@ -151,19 +151,19 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productInfo = self.storyboard?.instantiateViewController(withIdentifier: "productInfoViewController") as! productInfoViewController
-        var products = isFiltering ? filterCategory! : viewModel.category
-        products = (filterCategory?.isEmpty == false) ? filterCategory! : viewModel.category
-        guard indexPath.row < products.count else {
-            return
-        }
-        let thisProduct = products[indexPath.row]
-        productInfo.infoFlag = 1
-        productInfo.productID = (thisProduct.variants.first?.product_id)!
-        print(thisProduct.id!)
-        self.navigationController?.pushViewController(productInfo, animated: true)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let productInfo = self.storyboard?.instantiateViewController(withIdentifier: "productInfoViewController") as! productInfoViewController
+//        var products = isFiltering ? filterCategory! : viewModel.category
+//        products = (filterCategory?.isEmpty == false) ? filterCategory! : viewModel.category
+//        guard indexPath.row < products.count else {
+//            return
+//        }
+//        let thisProduct = products[indexPath.row]
+//        productInfo.infoFlag = 1
+//        productInfo.productID = (thisProduct.variants.first?.product_id)!
+//        print(thisProduct.id!)
+//        self.navigationController?.pushViewController(productInfo, animated: true)
+//    }
     
     func renderCategoryCollection() {
         self.categoryCollectionView.reloadData()

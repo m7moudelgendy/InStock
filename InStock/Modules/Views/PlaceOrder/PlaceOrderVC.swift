@@ -16,6 +16,10 @@ class PlaceOrderVC: UIViewController {
     @IBOutlet weak var ShiipingFeesLB: UILabel!
     @IBOutlet weak var couponTF: UITextField!
     
+    @IBOutlet weak var discountView: UIView!
+    @IBOutlet weak var cupponView: UIView!
+    @IBOutlet weak var shippingView: UIView!
+    @IBOutlet weak var subTotalView: UIView!
     @IBOutlet weak var couponValueLB: UILabel!
     @IBOutlet weak var discountLB: UILabel!
     @IBOutlet weak var grandTotalLB: UILabel!
@@ -35,7 +39,7 @@ class PlaceOrderVC: UIViewController {
             grandTotalNotValid = subPayments!
             discountNotValid = 0
             couponValueLB.text = "\(discountNotValid ?? 100) EGP"
-            grandTotalLB.text = "  Sub Total:  \(grandTotalNotValid + 30 ) EGP"
+            grandTotalLB.text = " \(grandTotalNotValid + 30 ) EGP"
         }
  
     }
@@ -57,19 +61,19 @@ class PlaceOrderVC: UIViewController {
             grandTotal! = grandTotal! - (grandTotal! * (20/100))
             discount = (subPayments!) * (20/100)
             couponValueLB.text = "\(discount) EGP"
-            grandTotalLB.text = "  Sub Total:  \(grandTotal! + 30 ) EGP"
+            grandTotalLB.text = " \(grandTotal! + 30 ) EGP"
             break
         case "coupon50" :
             grandTotal! = grandTotal! - (grandTotal! * (50/100))
             discount = (subPayments! ) * (50/100)
             couponValueLB.text = "\(discount) EGP"
-            grandTotalLB.text = "  Sub Total:  \(grandTotal! + 30 ) EGP"
+            grandTotalLB.text = " \(grandTotal! + 30 ) EGP"
             break
         case "coupon70" :
             grandTotal! = grandTotal! - (grandTotal! * (70/100))
             discount = (subPayments!) * (70/100)
             couponValueLB.text = "\(discount) EGP"
-            grandTotalLB.text = "  Sub Total:  \(grandTotal! + 30 ) EGP"
+            grandTotalLB.text = " \(grandTotal! + 30 ) EGP"
             break
         default :
             let alert = UIAlertController(title: "Coupon", message: "Coupon Not Valid", preferredStyle: .alert)
@@ -78,7 +82,7 @@ class PlaceOrderVC: UIViewController {
             grandTotal! = subPayments!
             discount = 0
             couponValueLB.text = "\(discount) EGP"
-            grandTotalLB.text = "  Sub Total:  \(grandTotal! + 30 ) EGP"
+            grandTotalLB.text = " \(grandTotal! + 30 ) EGP"
             present(alert, animated: true)
             break
         }
@@ -88,29 +92,10 @@ class PlaceOrderVC: UIViewController {
 //edit Gui
 extension PlaceOrderVC {
     func editLabelFrames(){
-        subTotalLB.layer.borderColor = UIColor.purple.cgColor
-        subTotalLB.layer.borderWidth = 3.0
-        subTotalName.layer.borderColor = UIColor.purple.cgColor
-        subTotalName.layer.borderWidth = 3.0
-        ShippingFeesValue.layer.borderColor = UIColor.purple.cgColor
-        ShippingFeesValue.layer.borderWidth = 3.0
-        ShiipingFeesLB.layer.borderColor = UIColor.purple.cgColor
-        ShiipingFeesLB.layer.borderWidth = 3.0
-        
-        couponValueLB.layer.borderColor = UIColor.purple.cgColor
-        couponValueLB.layer.borderWidth = 3.0
-        discountLB.layer.borderColor = UIColor.purple.cgColor
-        discountLB.layer.borderWidth = 3.0
-        grandTotalLB.layer.borderColor = UIColor.purple.cgColor
-        grandTotalLB.layer.borderWidth = 3.0
-        couponTF.layer.borderWidth = 3
-        couponTF.layer.cornerRadius = 15
-        couponTF.layer.masksToBounds = true
-        couponTF.layer.shadowOffset = CGSizeMake(6,6)
-        //couponTF.layer.borderColor = UIColor.purple.cgColor
-        couponTF.layer.shadowColor = UIColor.purple.cgColor
-        couponTF.layer.shadowOpacity = 0.4
-        couponTF.layer.shadowRadius = 10
-        
+        discountView.layer.cornerRadius = 25
+        cupponView.layer.cornerRadius = 25
+        shippingView.layer.cornerRadius = 25
+        subTotalView.layer.cornerRadius = 25
+    
     }
 }

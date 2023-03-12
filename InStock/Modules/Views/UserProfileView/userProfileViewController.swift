@@ -14,7 +14,7 @@ class userProfileViewController: UIViewController {
     @IBOutlet weak var userFullNameLBL: UILabel!
     
     let fetchArr = CoreDataManager.FetchFromCoreData()
-    
+    let favProArr = ProductCoreDataManager.FetchProFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
@@ -25,8 +25,9 @@ class userProfileViewController: UIViewController {
     
 
     @IBAction func logOutBtn(_ sender: Any) {
-        for _ in 0...fetchArr.count {
             CoreDataManager.DeleteFromCoreData()
+        for index in 0...favProArr.count{
+            ProductCoreDataManager.DeleteProFromCoreData(index: index)
         }
         CartRepo().local.delete(key: .Cart)
         let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "welcomeViewController") as! welcomeViewController
