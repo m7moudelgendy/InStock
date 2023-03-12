@@ -93,7 +93,8 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
         allOrder.order = newOrder
         OrederNetworkManger.addNewOrder(userOrder: allOrder) { _, _, _ in   }
         
-        
+        CartRepo().local.delete(key: .Cart)
+      
         let alert = UIAlertController(title: "Congratulations", message: "Your Order has Submitted", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler: { _ in
             let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController

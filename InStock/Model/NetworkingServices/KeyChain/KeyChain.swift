@@ -72,7 +72,6 @@ class KeyChain {
 
 enum DefaultsKey: String {
     case Cart = "cart"
-    case User = "user"
 }
 
 extension UserDefaults {
