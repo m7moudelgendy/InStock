@@ -423,6 +423,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F006F7B229BDFF9D00D0E864 /* OrderView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OrderView;
+			sourceTree = "<group>";
+		};
 		F032D7AF29B14634001284D4 /* BrandDetailsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +500,7 @@
 		F0E9ADEA29B00D5300A9D208 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F006F7B229BDFF9D00D0E864 /* OrderView */,
 				F052EC8829BD616E00D0623B /* SettingsView */,
 				AF1F028329BC0F7D00D15819 /* AddAddressView */,
 				AF06D3C629BBFDB10096F0E8 /* AdressView */,

@@ -26,12 +26,23 @@ class HomeViewModel{
             bindResultToHomeView()
         }
     }
-    
+    var orders : [GetOrders] = [] {
+        didSet{
+            //bind the result
+            bindResultToHomeView()
+        }
+    }
     
     func getBrands(){
         
         NetworkManger.fetchData(apiLink: apiLinks.Brands.rawValue){[weak self] (data: SmartCollections?) in
             self?.result = data?.smart_collections ?? []
+        }
+    }
+    func getOrders(){
+        
+        NetworkManger.fetchData(apiLink: apiLinks.orders.rawValue){[weak self] (data: GetAllOrders?) in
+            self?.orders = data?.orders ?? []
         }
     }
     

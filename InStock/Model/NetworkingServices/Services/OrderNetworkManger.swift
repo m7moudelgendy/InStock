@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Alamofire
 class OrederNetworkManger {
     
     static func addNewOrder(userOrder: AllOrders, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -36,4 +36,5 @@ class OrederNetworkManger {
             }
         }.resume()
     }
+    
 }
