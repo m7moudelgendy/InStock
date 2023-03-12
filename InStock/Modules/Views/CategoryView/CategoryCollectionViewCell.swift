@@ -9,6 +9,7 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var favProduct: UIButton!
     
     @IBOutlet weak var categoryImage: UIImageView!
     

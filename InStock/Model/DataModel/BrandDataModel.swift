@@ -26,6 +26,8 @@ class ProductDetails : Decodable{
 
 class ProductVariants : Decodable {
     var price : String?
+    var id : Int?
+    var product_id : Int?
 }
 
 class ProductImage :Decodable {

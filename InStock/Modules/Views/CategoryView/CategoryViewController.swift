@@ -24,6 +24,7 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
     var products = [ProductDetails]()
     var filterCategory : [ProductDetails]?
     var isFiltering: Bool = false
+    let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -45,7 +46,16 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
         categoryType.selectedSegmentIndex = 0
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.categoryCollectionView.reloadData()
+    }
     
+    @IBAction func favBTN(_ sender: Any) {
+        let favVC = self.storyboard?.instantiateViewController(withIdentifier: "favProductViewController") as! favProductViewController
+
+           self.navigationController?.pushViewController(favVC, animated: true)
+        
+    }
     @IBAction func searchBtn(_ sender: Any) {
         let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         self.navigationController?.pushViewController(searchVC, animated: true)
@@ -115,6 +125,19 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         cell.productType.text = thisProduct.product_type
         cell.productType.textColor = UIColor.blue
         cell.categoryPrice.text = thisProduct.variants[0].price! + "EGP"
+        for index in 0 ..< (favProductArr.count) {
+            let favProName = favProductArr[index].value(forKey: "proName") as? String
+            if thisProduct.title == favProName {
+                cell.favProduct.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.favProduct.reloadInputViews()
+                break
+            }
+            
+            else {
+                cell.favProduct.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+            
+        }
         
         cell.layer.borderColor = UIColor.systemGray.cgColor
         cell.layer.borderWidth = 2
@@ -126,6 +149,20 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         cell.layer.shadowRadius = 4
         cell.contentView.layer.masksToBounds = true
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productInfo = self.storyboard?.instantiateViewController(withIdentifier: "productInfoViewController") as! productInfoViewController
+        var products = isFiltering ? filterCategory! : viewModel.category
+        products = (filterCategory?.isEmpty == false) ? filterCategory! : viewModel.category
+        guard indexPath.row < products.count else {
+            return
+        }
+        let thisProduct = products[indexPath.row]
+        productInfo.infoFlag = 1
+        productInfo.productID = (thisProduct.variants.first?.product_id)!
+        print(thisProduct.id!)
+        self.navigationController?.pushViewController(productInfo, animated: true)
     }
     
     func renderCategoryCollection() {
