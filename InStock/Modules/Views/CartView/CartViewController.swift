@@ -37,30 +37,36 @@ class CartViewController: UIViewController {
        
     }
     @IBAction func plusBtn(_ sender: Any) {
-        quantity+=1
-        self.cartTable.reloadData()
+        let buttonPosition = (sender as AnyObject).convert(CGPoint.zero, to: self.cartTable)
+        if let indexPath = self.cartTable.indexPathForRow(at: buttonPosition) {
+            let product = cart.products[indexPath.row]
+            product.quantity += 1
+            totalPrice += (product.price as NSString).doubleValue
+            subTotal.text = "  Sub Total:  \(totalPrice) EGP"
+            self.cartTable.reloadRows(at: [indexPath], with: .none)
+        }
     }
     
     @IBAction func minusBtn(_ sender: Any) {
-        if(quantity==1)
-        {
-            quantity = 1
-            self.cartTable.reloadData()
+        let buttonPosition = (sender as AnyObject).convert(CGPoint.zero, to: self.cartTable)
+        if let indexPath = self.cartTable.indexPathForRow(at: buttonPosition) {
             
-        }else
-        {
-            quantity-=1
-            self.cartTable.reloadData()
+            let product = cart.products[indexPath.row]
+            if product.quantity > 1 {
+                product.quantity -= 1
+                totalPrice -= (product.price as NSString).doubleValue
+                subTotal.text = "  Sub Total:  \(totalPrice) EGP"
+                self.cartTable.reloadRows(at: [indexPath], with: .none)
+            }
         }
-  
+        
     }
     
     @IBAction func btnProceedClicked(_ sender: Any) {
         
         let placeVC = self.storyboard?.instantiateViewController(withIdentifier: "PlaceOrderVC") as! PlaceOrderVC
         placeVC.subPayments = totalPrice
-        //present(placeVC, animated: true, completion: nil)
-        //payMethod.totalPayments = NSDecimalNumber(string: "\(totalPrice)")
+        
         self.navigationController?.pushViewController(placeVC, animated: true)
         
     }
@@ -77,7 +83,7 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         cell.productImage.kf.setImage(with: url)
         cell.productName.text = cart.products[indexPath.row].title
         cell.productPrice.text = cart.products[indexPath.row].price
-        cell.productQuantity.text = "\(quantity)"
+        cell.productQuantity.text = "\(cart.products[indexPath.row].quantity)"
         
         return cell
     }
@@ -89,5 +95,8 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         
         subTotal.text = "  Sub Total:  \(totalPrice) EGP"
         cartTable.reloadData()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print ("ay 7aga")
     }
 }

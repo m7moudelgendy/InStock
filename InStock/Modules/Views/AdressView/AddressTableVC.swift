@@ -17,20 +17,7 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = AdressViewModel()
-        
-       
-//        if (viewModel.result.count == 0){
-//            let alert = UIAlertController(title: "Add Address", message: "Please Address for shipping", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: .cancel,handler: {  _ in
-//
-//                let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressVC") as! AddAddressVC
-//                self.navigationController?.pushViewController(addVC, animated: true)
-//            }))
-//            present(alert, animated: true)
-//        }else{
-//            renderTable()
-//        }
-        
+     
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,10 +65,14 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         AddressNetworkManger.deleteAddress(userAddress: viewModel.result[indexPath.row], addID: viewModel.result[indexPath.row].id!) { _, _, _ in
         }
-        viewModel.result.remove(at: indexPath.row)
-        renderTable()
-        
+
+        if(viewModel.result.count==1){
+            let alert = UIAlertController(title: "Default Address", message: "Can't Delete Default Address", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alert, animated: true)
+        }else {
+            viewModel.result.remove(at: indexPath.row)
+            renderTable()
+        }
     }
-
-
 }

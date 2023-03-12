@@ -30,6 +30,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     var proImageUrl : String?
     var proName : String?
     var proPrice : String?
+    var proQuantity = 1
     
     var viewModelOBJ : ProductInfoViewModel = ProductInfoViewModel()
     
@@ -66,7 +67,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
 
     @IBAction func addToCartBT(_ sender: Any) {
         
-        let product = CartProductModel(title: proName!, imageUrl: proImageUrl!, price: proPrice!)
+        let product = CartProductModel(title: proName!, imageUrl: proImageUrl!, price: proPrice!, quantity: proQuantity)
         
         for prod in cart.products {
             if prod.title == product.title {
