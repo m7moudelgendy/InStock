@@ -46,7 +46,6 @@ class PlaceOrderVC: UIViewController {
         }else{
             payVC.totalPayments = NSDecimalNumber(string: "\(grandTotal! + 30)")
         }
-        //self.dismiss(animated: true, completion: nil)
         self.navigationController?.pushViewController(payVC, animated: true)
         
     }

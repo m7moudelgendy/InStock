@@ -58,6 +58,7 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
     }
     func cashPay(){
         let tableVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressTableVC") as! AddressTableVC
+        tableVC.totalOrderPrice = totalPayments as? Double
         self.navigationController?.pushViewController(tableVC, animated: true)
         print("cash")
     }

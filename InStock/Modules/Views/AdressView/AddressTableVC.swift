@@ -15,6 +15,7 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
 
     var viewModel : AdressViewModel!
     var cart : CartModel!
+    var totalOrderPrice : Double?
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = AdressViewModel()
@@ -85,8 +86,7 @@ class AddressTableVC: UITableViewController,TableViewProtocol {
         }
         let order = LineItem()
         order.title = cart.products.first?.title
-        //order.price = Double(cart.products.first?.price ?? "")
-        order.price = 222.22
+        order.price = totalOrderPrice
         let newOrder = Orders()
         newOrder.line_items = [order]
         let allOrder = AllOrders()
