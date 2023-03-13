@@ -85,14 +85,14 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         return sections[section]
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 51.0
+        return 58.0
    }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.lightGray
+        view.tintColor = #colorLiteral(red: 0.9055046565, green: 0.9055046565, blue: 0.9055046565, alpha: 0.5722618861)
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.black
         header.textLabel?.textAlignment = .center
-        header.textLabel?.font = UIFont(name: "Futura", size: 25)!
+        header.textLabel?.font = UIFont(name: "Georgia Bold", size: 25)!
         tableView.sectionHeaderTopPadding = 0
     }
     
@@ -105,20 +105,14 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         let cell = payMethodsTable.dequeueReusableCell(withIdentifier: "payCell", for: indexPath)
         
         cell.textLabel?.text = arr[indexPath.section][indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Helvetica Neue", size: 36)
-        cell.layer.borderColor = UIColor.purple.cgColor
-        cell.layer.borderWidth = 3
+        cell.textLabel?.font = UIFont(name: "Georgia Bold", size: 30)
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
-        cell.layer.shadowOffset = CGSizeMake(6,6)
-        cell.layer.shadowColor = UIColor.white.cgColor
-        cell.layer.shadowOpacity = 0.4
-        cell.layer.shadowRadius = 10
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 160
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath == [0,0]){

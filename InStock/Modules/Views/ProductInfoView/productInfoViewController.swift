@@ -41,6 +41,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         collectionView.dataSource = self
         collectionView.layer.cornerRadius = 20
         productDescrip.layer.cornerRadius = 10
+        productDescrip.isEditable = false
         
         if CartRepo().local.isExist() {
             cart = CartRepo().local.get()!

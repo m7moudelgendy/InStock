@@ -66,13 +66,12 @@ class CartViewController: UIViewController {
     
     @IBAction func btnProceedClicked(_ sender: Any) {
         
-        let customerID = userArr.first?.value(forKey: "id")as? Int
-        
-        if(customerID == nil){
+    
+        if( userArr.count == 0){
             let alert = UIAlertController(title: "Requierd Sign In", message: "You have to Sign In", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
             alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler: { _ in
-                let sign = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+                let sign = self.storyboard?.instantiateViewController(withIdentifier: "welcomeViewController") as! welcomeViewController
                 self.navigationController?.pushViewController(sign, animated: true)
             }))
             present(alert, animated: true)

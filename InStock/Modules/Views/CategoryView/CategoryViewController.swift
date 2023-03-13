@@ -139,15 +139,7 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
             
         }
         
-        cell.layer.borderColor = UIColor.systemGray.cgColor
-        cell.layer.borderWidth = 2
-        cell.layer.cornerRadius = 25
-        cell.layer.masksToBounds = true
-        cell.layer.shadowOffset = CGSizeMake(6, 6)
-        cell.layer.shadowColor = UIColor.white.cgColor
-        cell.layer.shadowOpacity = 0.4
-        cell.layer.shadowRadius = 4
-        cell.contentView.layer.masksToBounds = true
+     
         return cell
     }
     
