@@ -48,7 +48,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
                 let alert = UIAlertController(title: "Coupon", message: "Coupon Copied To Clipboard", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                 present(alert, animated: true)
-                print(UIPasteboard.general.string!)
+                
             }else {
                 let brandDetails = self.storyboard?.instantiateViewController(withIdentifier: "BrandDetailsVC") as! BrandDetailsVC
                 

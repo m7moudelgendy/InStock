@@ -97,14 +97,12 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         for prod in cart.products {
             if prod.title == product.title {
                 addedToCart = true
-                print("This item already added to the cart")
             }
         }
         
         if !addedToCart {
             cart.products.append(product)
             CartRepo().local.store(key: .Cart, object: cart)
-            print("Cart count: ", CartRepo().local.get()?.products.count)
             addedToCart = false
             dismiss(animated: true)
         }

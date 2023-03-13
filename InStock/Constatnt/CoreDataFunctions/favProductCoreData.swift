@@ -26,8 +26,6 @@ class ProductCoreDataManager : ProCoreDataProtocol {
         
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "FavProduct")
         arrUser = try? context?.fetch(fetchReq)
-        
-        print("product fetch")
         return arrUser ?? []
     }
     
@@ -44,7 +42,6 @@ class ProductCoreDataManager : ProCoreDataProtocol {
         product.setValue(proLink , forKey: "proLink")
         
         try? context?.save()
-        print("product in core Data")
         
     }
     
@@ -60,12 +57,10 @@ class ProductCoreDataManager : ProCoreDataProtocol {
                 
             }
             catch let error as NSError{
-                print(error)
+                print(error.localizedDescription)
             }
-            print("deleted product from core data")
         }
         else {
-            print("product Core data is empty")
             return
         }
         

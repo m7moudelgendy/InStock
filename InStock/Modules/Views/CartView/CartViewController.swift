@@ -71,7 +71,8 @@ class CartViewController: UIViewController {
             let alert = UIAlertController(title: "Requierd Sign In", message: "You have to Sign In", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
             alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler: { _ in
-                let sign = self.storyboard?.instantiateViewController(withIdentifier: "welcomeViewController") as! welcomeViewController
+                let sign = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+                
                 self.navigationController?.pushViewController(sign, animated: true)
             }))
             present(alert, animated: true)

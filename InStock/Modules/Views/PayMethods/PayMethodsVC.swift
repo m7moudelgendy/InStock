@@ -54,13 +54,13 @@ class PayMethodsVC: UIViewController, PKPaymentAuthorizationViewControllerDelega
             controller!.delegate = self
             present(controller!, animated: true, completion: nil)
         }
-        print("Apple Pay")
+        
     }
     func cashPay(){
         let tableVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressTableVC") as! AddressTableVC
         tableVC.totalOrderPrice = totalPayments as? Double
         self.navigationController?.pushViewController(tableVC, animated: true)
-        print("cash")
+        
     }
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         

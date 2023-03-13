@@ -51,7 +51,7 @@ extension favProductViewController : UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
        
         let alert = UIAlertController(title:"", message: "Delete this product from wish list ?", preferredStyle: .alert)
-        print(productArr.count)
+        
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self] UIAlertAction in
             ProductCoreDataManager.DeleteProFromCoreData(index: indexPath.row)
             productArr.remove(at: indexPath.row)

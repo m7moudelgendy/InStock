@@ -9,7 +9,7 @@ import UIKit
 
 class welcomeViewController: UIViewController {
 
-    let fetchUser = CoreDataManager.FetchFromCoreData()
+    var fetchUser = CoreDataManager.FetchFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true

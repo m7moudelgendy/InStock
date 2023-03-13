@@ -89,6 +89,7 @@ class SignInViewController: UIViewController {
                                                id: (self!.registerViewModelOBJ.user.first?.id)!)
                 
                 let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
+                
                 self?.navigationController?.pushViewController(userVC, animated: true)
                 
             } else {

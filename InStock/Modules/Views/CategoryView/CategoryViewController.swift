@@ -156,7 +156,6 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         productInfo.proName = thisProduct.title!
         productInfo.proPrice = thisProduct.variants.first?.price!
         productInfo.proImageUrl = thisProduct.image.src!
-        print(thisProduct.id!)
         self.navigationController?.pushViewController(productInfo, animated: true)
     }
     

@@ -27,7 +27,6 @@ class CoreDataManager : CoreDataProtocol {
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Users")
         arrUser = try? context?.fetch(fetchReq)
         
-        print("data fetch")
         return arrUser ?? []
     }
     
@@ -45,7 +44,6 @@ class CoreDataManager : CoreDataProtocol {
         user.setValue(id , forKey: "id")
         
         try? context?.save()
-        print("user saved in core Data")
         
     }
     
@@ -60,12 +58,12 @@ class CoreDataManager : CoreDataProtocol {
                 try context?.save()
             }
             catch let error as NSError{
-                print(error)
+                print(error.localizedDescription)
             }
-            print("deleted from core data")
+            
         }
         else {
-            print("Core data is empty")
+            
             return
         }
         

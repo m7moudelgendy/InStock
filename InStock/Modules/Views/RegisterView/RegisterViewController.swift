@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
         
         registerViewModelOBJ.addNewCustomer(addCustomer: addedCustomer) { data, response, error in
         }
-        print("user added to server successfully ")
+        
         
         let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
        
