@@ -12,6 +12,7 @@ class welcomeViewController: UIViewController {
     let fetchUser = CoreDataManager.FetchFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         if fetchUser.count != 0 {
             let userVC = self.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
             self.navigationController?.pushViewController(userVC, animated: true)
