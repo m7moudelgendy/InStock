@@ -13,13 +13,18 @@ class welcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
         if fetchUser.count != 0 {
             let userVC = self.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
             self.navigationController?.pushViewController(userVC, animated: true)
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
         
     }
-    
     @IBAction func sinUpBTN(_ sender: Any) {
         
         let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
