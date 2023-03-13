@@ -47,7 +47,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         }
         switch infoFlag {
         case 1:
-            let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json"
+            let productInfoURL = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products/\(productID).json"
             viewModelOBJ.getProductInfo(UrlLink: productInfoURL)
         case 2:
             let productInfoURL = "https://b61bfc9ff926e2344efcd1ffd0d0b751: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@mad-ios-1.myshopify.com/admin/api/2023-01/products/\(productID).json?collection_id=\(collectionID)"
@@ -82,6 +82,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
                 favBTN.setImage(UIImage(systemName: "heart"), for: .normal)
             }
         }
+        self.collectionView.reloadData()
     }
      
     func renderProductInfoCollection() {
@@ -110,8 +111,9 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     }
     
     @IBAction func favouriteBT(_ sender: UIButton) {
-        ProductCoreDataManager.SaveProToCoreData(proName: proName!, proPrice: proPrice!, proLink: proImageUrl!)
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        
+            ProductCoreDataManager.SaveProToCoreData(proName:productTitle.text! , proPrice: productPrice.text!, proLink: proImageUrl!)
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
 }
 

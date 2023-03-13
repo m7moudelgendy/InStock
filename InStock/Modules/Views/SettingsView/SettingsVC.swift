@@ -21,6 +21,10 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = HomeViewModel()
+        let user = CoreDataManager.FetchFromCoreData()
+        let userName = (user.first?.value(forKey: "firstName"))! as! String
+    
+        userNameLabel.text = "Hi" + "" +userName
         settingTableView.isScrollEnabled = false
         
     }
