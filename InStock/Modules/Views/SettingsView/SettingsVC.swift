@@ -24,7 +24,7 @@ class SettingsVC: UIViewController {
         let user = CoreDataManager.FetchFromCoreData()
         let userName = (user.first?.value(forKey: "firstName"))! as! String
     
-        userNameLabel.text = "Hi" + "" +userName
+        userNameLabel.text = "Hi" + "" + userName
         settingTableView.isScrollEnabled = false
         
     }
