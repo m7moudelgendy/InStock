@@ -133,7 +133,7 @@ extension UITableView {
         messageLabel.font = UIFont(name: "Georgia-Regular", size: 17)
         let image = UIImage(named: image)
          let noDataImage = UIImageView(image: image)
-         noDataImage.frame = CGRect(x: 30, y: 205, width: 350, height: 350)
+         noDataImage.frame = CGRect(x: 30, y: 145, width: 350, height: 350)
         emptyView.addSubview(noDataImage)
         emptyView.addSubview(titleLabel)
         emptyView.addSubview(messageLabel)

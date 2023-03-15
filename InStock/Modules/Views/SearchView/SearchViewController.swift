@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import CoreData
 
 protocol ProductsViewProtocol : AnyObject {
     
@@ -21,8 +22,8 @@ class SearchViewController: UIViewController ,ProductsViewProtocol
     var searchviewModel : SearchViewModel!
     var searching = false
     let searchController = UISearchController(searchResultsController: nil)
-    let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
-    
+    var favProductArr = [NSManagedObject]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         productsCollectionView.delegate = self
@@ -42,6 +43,13 @@ class SearchViewController: UIViewController ,ProductsViewProtocol
         }
         
      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+          favProductArr = ProductCoreDataManager.FetchProFromCoreData()
+         renderProductsCollection()
+
+
     }
     func configureSearchController ()
     {

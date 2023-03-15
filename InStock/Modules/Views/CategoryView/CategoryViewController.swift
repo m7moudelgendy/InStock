@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import Floaty
+import CoreData
 protocol CategoryViewProtocol : AnyObject {
     
     func renderCategoryCollection()
@@ -17,15 +18,14 @@ protocol CategoryViewProtocol : AnyObject {
 class CategoryViewController: UIViewController ,CategoryViewProtocol  {
     
     var viewModel : CategoryViewModel!
-    
+    var favProductArr = [NSManagedObject]()
     @IBOutlet weak var floaty: Floaty!
     
     @IBOutlet weak var categoryType: UISegmentedControl!
     var products = [ProductDetails]()
     var filterCategory : [ProductDetails]?
     var isFiltering: Bool = false
-    let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
+     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +48,11 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.bindResultToHomeView = {[weak self] in
-            DispatchQueue.main.async{
-                self?.renderCategoryCollection()
-            }
-        }    }
+          favProductArr = ProductCoreDataManager.FetchProFromCoreData()
+        renderCategoryCollection()
+
+
+    }
     override func viewDidAppear(_ animated: Bool) {
         viewModel.bindResultToHomeView = {[weak self] in
             DispatchQueue.main.async{
