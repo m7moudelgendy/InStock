@@ -102,7 +102,7 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         let url = URL(string: cart.products[indexPath.row].imageUrl)
         cell.productImage.kf.setImage(with: url)
         cell.productName.text = cart.products[indexPath.row].title
-        cell.productPrice.text = cart.products[indexPath.row].price + "EGP"
+        cell.productPrice.text = cart.products[indexPath.row].price 
         cell.productQuantity.text = "\(cart.products[indexPath.row].quantity)"
         
         return cell

@@ -65,7 +65,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
                 self?.productTitle.text = self?.viewModelOBJ.productTitle
                 self?.productType.text = self?.viewModelOBJ.productType
                 self?.productDescrip.text  = self?.viewModelOBJ.productDescription
-                self?.productPrice.text = (self?.viewModelOBJ.productPrice)! + "EGP"
+                self?.productPrice.text = (self?.viewModelOBJ.productPrice)! + " EGP"
                 
             }
         }
