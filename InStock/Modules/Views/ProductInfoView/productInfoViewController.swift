@@ -96,8 +96,6 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         let product = CartProductModel(title: proName!, imageUrl: proImageUrl!, price: proPrice!, quantity: proQuantity)
         
         for prod in cart.products {
-//            let alert = UIAlertController(title: "Shopping Cart", message: "Already Exist", preferredStyle: .alert)
-//            present(alert, animated: true)
             showToast(message: "Already Exist")
             if prod.title == product.title {
                 addedToCart = true
@@ -107,8 +105,6 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         
         if !addedToCart {
             cart.products.append(product)
-//            let alert = UIAlertController(title: "Shopping Cart", message: "Added to cart", preferredStyle: .alert)
-//            present(alert, animated: true)
             showToast(message: "Product added to cart")
             CartRepo().local.store(key: .Cart, object: cart)
             addedToCart = false
@@ -123,9 +119,9 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
     func showToast (message: String){
-            let toastLb = UILabel(frame: CGRect(x: self.view.frame.width/2-120, y: self.view.frame.height-100, width: 250, height: 40))
+            let toastLb = UILabel(frame: CGRect(x: self.view.frame.width/2-120, y: self.view.frame.height/2+150, width: 250, height: 40))
             toastLb.textAlignment = .center
-            toastLb.backgroundColor = UIColor.black
+            toastLb.backgroundColor = UIColor.purple
             toastLb.textColor = UIColor.white
             toastLb.alpha = 1.0
             toastLb.layer.cornerRadius = 10
