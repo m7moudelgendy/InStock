@@ -57,7 +57,7 @@ extension BrandDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
         cell.ptoductName.text = viewModel.products[indexPath.row].title
         cell.productType.text = viewModel.products[indexPath.row].product_type
         cell.productImage.kf.setImage(with: url)
-        cell.productPrice.text = viewModel.products[indexPath.row].variants[0].price! + "EGP"
+        cell.productPrice.text = viewModel.products[indexPath.row].variants[0].price! + " EGP"
         
         return cell
     }
