@@ -9,13 +9,12 @@ import UIKit
 
 class SettingsVC: UIViewController {
     
-    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var orderPriceLabel: UILabel!
     @IBOutlet weak var orderDateLabel: UILabel!
     
     @IBOutlet weak var settingTableView: UITableView!
-    var setting = ["Address","Currency","Contact us","About us"]
+    var setting = ["Address","Currency","Contact us","About"]
     var arr = [" Location","  EGP","",""]
     var viewModel : HomeViewModel!
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class SettingsVC: UIViewController {
         viewModel = HomeViewModel()
         let user = CoreDataManager.FetchFromCoreData()
         let userName = (user.first?.value(forKey: "firstName"))! as! String
-    
+        
         userNameLabel.text = "Hi " + " " +  userName
         settingTableView.isScrollEnabled = false
         
@@ -33,7 +32,7 @@ class SettingsVC: UIViewController {
         viewModel.bindResultToHomeView = {
             
             DispatchQueue.main.async{ [self] in
-                orderPriceLabel.text = "Price : " + "\(viewModel.orders.first?.current_subtotal_price ?? "")"
+                orderPriceLabel.text = "Price : " + "\(viewModel.orders.first?.current_subtotal_price ?? "")" + " EGP"
                 orderDateLabel.text = "Created at : " + "\(viewModel.orders.first?.created_at ?? "")"
             }
         }

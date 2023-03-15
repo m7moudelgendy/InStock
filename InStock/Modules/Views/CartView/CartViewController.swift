@@ -16,14 +16,11 @@ class CartViewController: UIViewController {
     var totalPrice = 0.0
     @IBOutlet weak var cartTable: UITableView!
     
-    @IBOutlet weak var cartView: UIView!
     @IBOutlet weak var subTotal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cartView.clipsToBounds = true
-        cartView.layer.cornerRadius = 20
-        cartView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        navigationItem.title = "Shopping Cart"
         if CartRepo().local.isExist() {
             cart = CartRepo().local.get()!
         }
@@ -31,7 +28,9 @@ class CartViewController: UIViewController {
             for item in cart.products {
                 totalPrice += (item.price as NSString).doubleValue
             }
-            subTotal.text = " \(totalPrice) EGP"
+            subTotal.text = " SubTotal =  \(totalPrice) EGP"
+            subTotal.layer.borderColor = UIColor.purple.cgColor
+            subTotal.layer.borderWidth = 2
             cartTable.reloadData()
         }
         
@@ -44,7 +43,7 @@ class CartViewController: UIViewController {
             let product = cart.products[indexPath.row]
             product.quantity += 1
             totalPrice += (product.price as NSString).doubleValue
-            subTotal.text = " \(totalPrice) EGP"
+            subTotal.text = " SubTotal =  \(totalPrice) EGP"
             self.cartTable.reloadRows(at: [indexPath], with: .none)
         }
     }
@@ -57,7 +56,7 @@ class CartViewController: UIViewController {
             if product.quantity > 1 {
                 product.quantity -= 1
                 totalPrice -= (product.price as NSString).doubleValue
-                subTotal.text = " \(totalPrice) EGP"
+                subTotal.text = " SubTotal =  \(totalPrice) EGP"
                 self.cartTable.reloadRows(at: [indexPath], with: .none)
             }
         }
@@ -96,7 +95,7 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         let url = URL(string: cart.products[indexPath.row].imageUrl)
         cell.productImage.kf.setImage(with: url)
         cell.productName.text = cart.products[indexPath.row].title
-        cell.productPrice.text = cart.products[indexPath.row].price
+        cell.productPrice.text = cart.products[indexPath.row].price + "EGP"
         cell.productQuantity.text = "\(cart.products[indexPath.row].quantity)"
         
         return cell
@@ -107,7 +106,6 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
         cart.products.remove(at: indexPath.row)
         CartRepo().local.store(key: .Cart, object: cart)
         
-        subTotal.text = "  Sub Total:  \(totalPrice) EGP"
         cartTable.reloadData()
     }
 }

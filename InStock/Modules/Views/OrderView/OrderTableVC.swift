@@ -50,7 +50,7 @@ class OrderTableVC: UITableViewController , OrderViewProtocol{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         cell.textLabel?.text = "Created at : " + "\(viewModel.orders[indexPath.row].created_at ?? "")"
-        cell.detailTextLabel?.text = "Price : " + "\(viewModel.orders[indexPath.row].current_subtotal_price ?? "")"
+        cell.detailTextLabel?.text = "Price : " + "\(viewModel.orders[indexPath.row].current_subtotal_price ?? "")" + " EGP"
         cell.textLabel?.font = UIFont(name: "Helvetica Neue", size: 18)
         cell.detailTextLabel?.font = UIFont(name: "Helvetica Neue", size: 16)
         cell.backgroundColor = UIColor.white

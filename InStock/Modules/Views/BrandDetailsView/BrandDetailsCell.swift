@@ -14,6 +14,10 @@ class BrandDetailsCell: UICollectionViewCell {
     
     @IBOutlet weak var productPrice: UILabel!
     
+    @IBOutlet weak var ptoductName: UILabel!
+    
+    
+    @IBOutlet weak var productType: UILabel!
     
     
 }

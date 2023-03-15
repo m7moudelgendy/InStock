@@ -14,7 +14,7 @@ protocol BrandViewProtocol : AnyObject {
 
 class BrandDetailsVC: UIViewController , BrandViewProtocol {
     
-    let search = UISearchController()
+    
     var brandID = 0
     var index = 0
     
@@ -25,8 +25,8 @@ class BrandDetailsVC: UIViewController , BrandViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       title = "Search"
-        navigationItem.searchController = search
+       
+        navigationItem.title = "Brand Details"
         
         viewModel = HomeViewModel()
         
@@ -54,6 +54,8 @@ extension BrandDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandDetailsCell", for: indexPath) as! BrandDetailsCell
         
         let url = URL(string: viewModel.products[indexPath.row].image.src!)
+        cell.ptoductName.text = viewModel.products[indexPath.row].title
+        cell.productType.text = viewModel.products[indexPath.row].product_type
         cell.productImage.kf.setImage(with: url)
         cell.productPrice.text = viewModel.products[indexPath.row].variants[0].price! + "EGP"
         
@@ -74,4 +76,16 @@ extension BrandDetailsVC : UICollectionViewDataSource , UICollectionViewDelegate
         productInfo.proPrice = viewModel.products[indexPath.row].variants[0].price! + "EGP"
         self.navigationController?.pushViewController(productInfo, animated: true)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //let cellWidth = (collectionView.bounds.width - 45) / 2
+        return CGSize(width: 181, height: 181)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
 }

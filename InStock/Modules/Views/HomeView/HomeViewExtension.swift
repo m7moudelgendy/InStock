@@ -55,9 +55,6 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
                 brandDetails.brandID = viewModel.result[indexPath.row].id!
                  self.navigationController?.pushViewController(brandDetails, animated: true)
              }
-        
-        
-        
         }
 }
 

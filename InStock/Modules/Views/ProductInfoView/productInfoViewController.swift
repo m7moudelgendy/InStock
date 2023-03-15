@@ -37,6 +37,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Proudct Info"
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.layer.cornerRadius = 20
@@ -95,13 +96,20 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
         let product = CartProductModel(title: proName!, imageUrl: proImageUrl!, price: proPrice!, quantity: proQuantity)
         
         for prod in cart.products {
+//            let alert = UIAlertController(title: "Shopping Cart", message: "Already Exist", preferredStyle: .alert)
+//            present(alert, animated: true)
+            showToast(message: "Already Exist")
             if prod.title == product.title {
                 addedToCart = true
+                
             }
         }
         
         if !addedToCart {
             cart.products.append(product)
+//            let alert = UIAlertController(title: "Shopping Cart", message: "Added to cart", preferredStyle: .alert)
+//            present(alert, animated: true)
+            showToast(message: "Product added to cart")
             CartRepo().local.store(key: .Cart, object: cart)
             addedToCart = false
             dismiss(animated: true)
@@ -114,6 +122,22 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
             ProductCoreDataManager.SaveProToCoreData(proName:productTitle.text! , proPrice: productPrice.text!, proLink: proImageUrl!)
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
+    func showToast (message: String){
+            let toastLb = UILabel(frame: CGRect(x: self.view.frame.width/2-120, y: self.view.frame.height-100, width: 250, height: 40))
+            toastLb.textAlignment = .center
+            toastLb.backgroundColor = UIColor.black
+            toastLb.textColor = UIColor.white
+            toastLb.alpha = 1.0
+            toastLb.layer.cornerRadius = 10
+            toastLb.clipsToBounds = true
+            toastLb.text = message
+            self.view.addSubview(toastLb)
+            UIView.animate(withDuration: 3.0 , delay: 0.5, options: .curveEaseInOut, animations: {
+                toastLb.alpha = 0.0
+            }){(isCompleted)in
+                toastLb.removeFromSuperview()
+            }
+        }
 }
 
 

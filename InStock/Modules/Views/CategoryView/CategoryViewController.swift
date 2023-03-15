@@ -29,6 +29,7 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Categories"
         floatyBtn()
         viewModel = CategoryViewModel()
         
