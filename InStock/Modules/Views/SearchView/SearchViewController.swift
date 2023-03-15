@@ -128,6 +128,17 @@ extension SearchViewController : UICollectionViewDataSource , UICollectionViewDe
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productInfo = self.storyboard?.instantiateViewController(withIdentifier: "productInfoViewController") as! productInfoViewController
+        
+         productInfo.infoFlag = 1
+        var product = searchviewModel.searchProduct[indexPath.row]
+        productInfo.productID = product.id!
+        productInfo.proName = product.title!
+        productInfo.proPrice = product.variants.first?.price!
+        productInfo.proImageUrl = product.image.src!
+        self.navigationController?.pushViewController(productInfo, animated: true)
+    }
     
     func renderProductsCollection() {
         self.productsCollectionView.reloadData()

@@ -697,8 +697,8 @@
 			);
 			mainGroup = AF0F700229AE104800077816;
 			packageReferences = (
-				44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos.git" */,
-				18A8769F29B5259700918DD5 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos" */,
+				18A8769F29B5259700918DD5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = AF0F700C29AE104800077816 /* Products */;
 			projectDirPath = "";
@@ -1246,7 +1246,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		18A8769F29B5259700918DD5 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		18A8769F29B5259700918DD5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1254,7 +1254,7 @@
 				kind = branch;
 			};
 		};
-		44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos.git" */ = {
+		44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
 			requirement = {
@@ -1267,12 +1267,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		18A876A029B5259700918DD5 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 18A8769F29B5259700918DD5 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 18A8769F29B5259700918DD5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		44156EA029B3EC5800FF473B /* Cosmos */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos.git" */;
+			package = 44156E9F29B3EC5800FF473B /* XCRemoteSwiftPackageReference "Cosmos" */;
 			productName = Cosmos;
 		};
 /* End XCSwiftPackageProductDependency section */

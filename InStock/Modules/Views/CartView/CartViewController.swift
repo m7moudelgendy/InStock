@@ -29,8 +29,8 @@ class CartViewController: UIViewController {
                 totalPrice += (item.price as NSString).doubleValue
             }
             subTotal.text = " SubTotal =  \(totalPrice) EGP"
-            subTotal.layer.borderColor = UIColor.purple.cgColor
-            subTotal.layer.borderWidth = 2
+            subTotal.layer.borderColor = UIColor.white.cgColor
+            subTotal.layer.borderWidth = 1
             cartTable.reloadData()
         }
         
@@ -89,7 +89,7 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if cart.products.count == 0 {
-        tableView.setEmptyView(title: "You don't have any product in cart.", message: "Your Cart Is Empty.")
+        tableView.setEmptyCartView(title: "You don't have any product in cart.", message: "Your Cart Is Empty." , image: "cart")
         }
         else {
         tableView.restore()
@@ -121,19 +121,23 @@ extension CartViewController : UITableViewDelegate , UITableViewDataSource {
 }
 
 extension UITableView {
-    func setEmptyView(title: String, message: String) {
+    func setEmptyCartView(title: String, message: String , image :String) {
         let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
         let titleLabel = UILabel()
         let messageLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        titleLabel.font = UIFont(name: "Georgia-Bold", size: 18)
         messageLabel.textColor = UIColor.lightGray
-        messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+        messageLabel.font = UIFont(name: "Georgia-Regular", size: 17)
+        let image = UIImage(named: image)
+         let noDataImage = UIImageView(image: image)
+         noDataImage.frame = CGRect(x: 30, y: 205, width: 350, height: 350)
+        emptyView.addSubview(noDataImage)
         emptyView.addSubview(titleLabel)
         emptyView.addSubview(messageLabel)
-        titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: noDataImage.bottomAnchor, constant: 20).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
         messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         messageLabel.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 20).isActive = true

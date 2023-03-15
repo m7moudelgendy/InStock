@@ -25,6 +25,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     @IBOutlet weak var collectionView: UICollectionView!
     var collectionID = 0
     var productID = 0
+    var isFav : Bool = false
     //cart object
     var addedToCart: Bool = false
     var cart = CartModel()
@@ -115,14 +116,34 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     
     @IBAction func favouriteBT(_ sender: UIButton) {
         
+        for index in 0..<favProductArr.count
+        {
+            if proName == favProductArr[index].value(forKey: "proName") as! String
+            {
+                isFav = true
+            }
+           
+        }
+        switch isFav {
+        case true:
+            showToast(message: "Already Exist")
+
+            break
+        case false:
+            showToast(message: "Product added to Wishlist")
             ProductCoreDataManager.SaveProToCoreData(proName:productTitle.text! , proPrice: productPrice.text!, proLink: proImageUrl!)
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            break
+        default:
+            break
+        }
     }
+ 
     func showToast (message: String){
-            let toastLb = UILabel(frame: CGRect(x: self.view.frame.width/2-120, y: self.view.frame.height/2+150, width: 250, height: 40))
+            let toastLb = UILabel(frame: CGRect(x: self.view.frame.width/2-120, y: self.view.frame.height/2+250, width: 250, height: 40))
             toastLb.textAlignment = .center
-            toastLb.backgroundColor = UIColor.purple
-            toastLb.textColor = UIColor.white
+            toastLb.backgroundColor = #colorLiteral(red: 0.9441788197, green: 0.9288414717, blue: 0.9224751592, alpha: 1)
+            toastLb.textColor = #colorLiteral(red: 0.7490196078, green: 0, blue: 0.5176470588, alpha: 1)
             toastLb.alpha = 1.0
             toastLb.layer.cornerRadius = 10
             toastLb.clipsToBounds = true

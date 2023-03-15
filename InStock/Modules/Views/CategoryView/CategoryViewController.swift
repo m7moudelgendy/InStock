@@ -48,13 +48,23 @@ class CategoryViewController: UIViewController ,CategoryViewProtocol  {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.categoryCollectionView.reloadData()
+        viewModel.bindResultToHomeView = {[weak self] in
+            DispatchQueue.main.async{
+                self?.renderCategoryCollection()
+            }
+        }    }
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.bindResultToHomeView = {[weak self] in
+            DispatchQueue.main.async{
+                self?.renderCategoryCollection()
+            }
+        }
+        
     }
-    
     @IBAction func favBTN(_ sender: Any) {
         let favVC = self.storyboard?.instantiateViewController(withIdentifier: "favProductViewController") as! favProductViewController
-
-           self.navigationController?.pushViewController(favVC, animated: true)
+        
+        self.navigationController?.pushViewController(favVC, animated: true)
         
     }
     @IBAction func searchBtn(_ sender: Any) {
@@ -140,7 +150,7 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
             
         }
         
-     
+        
         return cell
     }
     
@@ -175,7 +185,7 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         return 4
     }
     
-
+    
     func floatyBtn() {
         floaty.addItem( icon: UIImage(named: "bag")!, handler: { [self] item in
             filterCategory = getFilteredProducts(productType: "accessories")
@@ -193,7 +203,7 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
             floaty.close()
         })
     }
-
+    
     func getFilteredProducts(productType: String) -> [ProductDetails] {
         switch categoryType.selectedSegmentIndex {
         case 0:
@@ -208,6 +218,6 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
             return []
         }
     }
-
+    
     
 }
