@@ -24,7 +24,8 @@ class HomeViewController: UIViewController , HomeViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        self.navigationItem.hidesBackButton = true
+
         viewModel = HomeViewModel()
         
         viewModel.bindResultToHomeView = {[weak self] in
