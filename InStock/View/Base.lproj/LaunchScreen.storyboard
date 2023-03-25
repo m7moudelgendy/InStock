@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vpj-6q-LdB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2023-03-25 at 2.29.45 AM" translatesAutoresizingMaskIntoConstraints="NO" id="vpj-6q-LdB">
                                 <rect key="frame" x="0.0" y="167" width="393" height="505"/>
                             </imageView>
                         </subviews>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="4000" height="4000"/>
+        <image name="WhatsApp Image 2023-03-25 at 2.29.45 AM" width="1280" height="1280"/>
     </resources>
 </document>
