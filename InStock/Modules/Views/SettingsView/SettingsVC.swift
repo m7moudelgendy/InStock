@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class SettingsVC: UIViewController {
     
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel : UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var orderPriceLabel: UILabel!
     @IBOutlet weak var orderDateLabel: UILabel!
@@ -17,18 +21,30 @@ class SettingsVC: UIViewController {
     var setting = ["Address","Currency","Contact us","About"]
     var arr = [" Location","  EGP","",""]
     var viewModel : HomeViewModel!
+    var fetchArr = [NSManagedObject]()
+    var wishListArr = [NSManagedObject]()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = HomeViewModel()
-        let user = CoreDataManager.FetchFromCoreData()
-        let userName = (user.first?.value(forKey: "firstName"))! as! String
-        
-        userNameLabel.text = "Hi " + " " +  userName
+        self.navigationItem.hidesBackButton = true
+
+        fetchArr = CoreDataManager.FetchFromCoreData()
+         viewModel = HomeViewModel()
+         let userName = (fetchArr.first?.value(forKey: "firstName"))! as! String
+        let LastName = (fetchArr.first?.value(forKey: "lastName"))! as! String
+        let email = (fetchArr.first?.value(forKey: "email"))! as! String
+
+        userNameLabel.text = "Hi, " + " " +  userName
+        fullNameLabel.text = userName + " " + LastName
+        emailLabel.text = email
         settingTableView.isScrollEnabled = false
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        fetchArr = CoreDataManager.FetchFromCoreData()
+         wishListArr = ProductCoreDataManager.FetchProFromCoreData()
+
         viewModel.bindResultToHomeView = {
             
             DispatchQueue.main.async{ [self] in
@@ -39,6 +55,23 @@ class SettingsVC: UIViewController {
         viewModel.getOrders()
         
     }
+    
+    
+    @IBAction func logOut(_ sender: Any) {
+ 
+        for _ in 0...fetchArr.count {
+                CoreDataManager.DeleteFromCoreData()
+            }
+        for _ in 0..<wishListArr.count {
+             ProductCoreDataManager.DeleteAllWishlistFromCoreData()
+            }
+            CartRepo().local.delete(key: .Cart)
+            let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "welcomeViewController") as! welcomeViewController
+
+               self.navigationController?.pushViewController(welcomeVC, animated: true)
+            
+        }
+ 
 }
 extension SettingsVC : UITableViewDelegate , UITableViewDataSource {
     
@@ -54,14 +87,14 @@ extension SettingsVC : UITableViewDelegate , UITableViewDataSource {
         cell.settingLabel.text = setting[indexPath.section]
         cell.infoLabel.text = arr[indexPath.section]
         cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 14
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

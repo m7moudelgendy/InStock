@@ -134,7 +134,6 @@ extension CategoryViewController : UICollectionViewDataSource , UICollectionView
         cell.categoryImage.kf.setImage(with: url)
         cell.productName.text = thisProduct.title
         cell.productType.text = thisProduct.product_type
-        cell.productType.textColor = UIColor.blue
         cell.categoryPrice.text = thisProduct.variants[0].price! + " EGP"
         for index in 0 ..< (favProductArr.count) {
             let favProName = favProductArr[index].value(forKey: "proName") as? String

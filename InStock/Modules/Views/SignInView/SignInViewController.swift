@@ -88,7 +88,7 @@ class SignInViewController: UIViewController {
                                                email: (self!.registerViewModelOBJ.user.first?.email)!,
                                                id: (self!.registerViewModelOBJ.user.first?.id)!)
                 
-                let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
+                let userVC = self?.storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
                 
                 self?.navigationController?.pushViewController(userVC, animated: true)
                 
@@ -96,7 +96,7 @@ class SignInViewController: UIViewController {
                 let alert = UIAlertController(title:"Incorrect email", message: "Please enter valid email", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] UIAlertAction in
-                    self!.dismiss(animated: true)
+                //    self!.dismiss(animated: true)
                 }))
                 
                 self?.present(alert, animated: true, completion: nil)

@@ -13,10 +13,32 @@ protocol ProCoreDataProtocol {
     static func SaveProToCoreData(proName : String , proPrice : String ,proLink : String ) ->()
     static func FetchProFromCoreData() -> [NSManagedObject]
     static func DeleteProFromCoreData (index : Int) ->()
-    
+    static func DeleteAllWishlistFromCoreData () ->()
+
 }
 
 class ProductCoreDataManager : ProCoreDataProtocol {
+    static func DeleteAllWishlistFromCoreData() {
+        var context :NSManagedObjectContext?
+        let appDelgate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelgate.persistentContainer.viewContext
+        let fetchArr = ProductCoreDataManager.FetchProFromCoreData()
+        if fetchArr.count != 0 {
+            context?.delete(fetchArr[0])
+            do {
+                try context?.save()
+            }
+            catch let error as NSError{
+                print(error.localizedDescription)
+            }
+            
+        }
+        else {
+            
+            return
+        }
+    }
+    
     
     static func FetchProFromCoreData() -> [NSManagedObject] {
         var context :NSManagedObjectContext?

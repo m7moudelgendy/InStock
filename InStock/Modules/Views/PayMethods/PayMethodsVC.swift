@@ -88,11 +88,11 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         return 58.0
    }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = #colorLiteral(red: 0.9055046565, green: 0.9055046565, blue: 0.9055046565, alpha: 0.5722618861)
+        view.tintColor = #colorLiteral(red: 0.9725490196, green: 0.9098039216, blue: 0.9137254902, alpha: 0.3691322064)
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.textColor = #colorLiteral(red: 0.1628514225, green: 0.1628514225, blue: 0.1628514225, alpha: 1)
         header.textLabel?.textAlignment = .center
-        header.textLabel?.font = UIFont(name: "Georgia Bold", size: 25)!
+        header.textLabel?.font = UIFont(name: "Georgia Bold", size: 18)!
         tableView.sectionHeaderTopPadding = 0
     }
     
@@ -105,7 +105,8 @@ extension PayMethodsVC : UITableViewDataSource ,UITableViewDelegate {
         let cell = payMethodsTable.dequeueReusableCell(withIdentifier: "payCell", for: indexPath)
         
         cell.textLabel?.text = arr[indexPath.section][indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Georgia Bold", size: 30)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.568627451, green: 0.1921568627, blue: 0.4588235294, alpha: 1)
+        cell.textLabel?.font = UIFont(name: "Georgia Bold", size: 20)
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
         

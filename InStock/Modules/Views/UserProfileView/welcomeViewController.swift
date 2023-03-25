@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class welcomeViewController: UIViewController {
 
-    var fetchUser = CoreDataManager.FetchFromCoreData()
+    var fetchUser  = [NSManagedObject]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
@@ -17,12 +19,14 @@ class welcomeViewController: UIViewController {
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         if fetchUser.count != 0 {
-            let userVC = self.storyboard?.instantiateViewController(withIdentifier: "userProfileViewController") as! userProfileViewController
+            let userVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
             self.navigationController?.pushViewController(userVC, animated: true)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        fetchUser = CoreDataManager.FetchFromCoreData()
         
     }
     @IBAction func sinUpBTN(_ sender: Any) {

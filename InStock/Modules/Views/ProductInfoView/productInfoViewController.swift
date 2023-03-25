@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol ProductInfoViewProtocol : AnyObject {
     
@@ -35,7 +36,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     var proQuantity = 1
     var infoFlag : Int?
     var viewModelOBJ : ProductInfoViewModel = ProductInfoViewModel()
-    let favProductArr = ProductCoreDataManager.FetchProFromCoreData()
+    var favProductArr  = [NSManagedObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Proudct Info"
@@ -73,6 +74,7 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        favProductArr = ProductCoreDataManager.FetchProFromCoreData()
         for index in 0 ..< (favProductArr.count) {
             let favProName = favProductArr[index].value(forKey: "proName") as? String
             if proName == favProName {
@@ -109,20 +111,23 @@ class productInfoViewController: UIViewController ,ProductInfoViewProtocol{
             showToast(message: "Product added to cart")
             CartRepo().local.store(key: .Cart, object: cart)
             addedToCart = false
-            dismiss(animated: true)
+          //  dismiss(animated: true)
         }
         
     }
     
     @IBAction func favouriteBT(_ sender: UIButton) {
-        
+        favProductArr = ProductCoreDataManager.FetchProFromCoreData()
+
         for index in 0..<favProductArr.count
         {
-            if proName == favProductArr[index].value(forKey: "proName") as! String
+
+       
+            if proName == (favProductArr[index].value(forKey: "proName") as? String)!
             {
                 isFav = true
-            }
-           
+              }
+         
         }
         switch isFav {
         case true:
